@@ -1,2 +1,19 @@
 @import './config/variables';
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: $white;
+    color: $gray-800;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
