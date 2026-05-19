@@ -1,0 +1,319 @@
+@import '../../styles/config/variables';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	font-family: 'Inter', sans-serif;
+	background: linear-gradient(165deg, #081323 0%, #0a1628 42%, #11284c 100%);
+	color: $white;
+	overflow-x: hidden;
+}
+
+.page-bg {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+}
+
+.grid-layer {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+	background-size: 52px 52px;
+}
+
+.glow {
+	position: absolute;
+	border-radius: 50%;
+}
+
+.glow-1 {
+	width: 560px;
+	height: 560px;
+	top: -200px;
+	right: -120px;
+	background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 72%);
+}
+
+.glow-2 {
+	width: 420px;
+	height: 420px;
+	left: -100px;
+	bottom: -100px;
+	background: radial-gradient(circle, rgba(249, 115, 22, 0.24) 0%, transparent 70%);
+}
+
+.register-layout {
+	width: min(1260px, 92vw);
+	margin: 0 auto;
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1.08fr 0.92fr;
+	gap: 34px;
+	padding: 100px 0;
+	position: relative;
+	z-index: 2;
+}
+
+.form-card,
+.brand-panel {
+	border-radius: 28px;
+	border: 1px solid rgba(255, 255, 255, 0.11);
+	backdrop-filter: blur(14px);
+	box-shadow: $shadow-lg;
+}
+
+.form-panel {
+	display: flex;
+}
+
+.form-card {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.97);
+	color: $gray-900;
+	padding: 30px;
+}
+
+.back-link {
+	color: $blue-500;
+	text-decoration: none;
+	font-size: 0.88rem;
+	font-weight: 700;
+}
+
+.back-link:hover {
+	text-decoration: underline;
+}
+
+.form-header {
+	margin-top: 14px;
+}
+
+.badge {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: rgba(249, 115, 22, 0.12);
+	color: $orange-500;
+	border: 1px solid rgba(249, 115, 22, 0.25);
+	font-size: 0.76rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 14px;
+}
+
+.form-header h1 {
+	font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+	line-height: 1.15;
+	letter-spacing: -0.8px;
+	margin-bottom: 8px;
+}
+
+.form-header p {
+	color: $gray-500;
+	margin-bottom: 20px;
+}
+
+.register-form {
+	display: grid;
+	gap: 14px;
+}
+
+.grid-two {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+}
+
+.field {
+	display: grid;
+	gap: 8px;
+}
+
+.field label {
+	font-size: 0.83rem;
+	font-weight: 700;
+	color: $gray-700;
+}
+
+.field input,
+.field select {
+	width: 100%;
+	border: 1px solid $gray-200;
+	border-radius: 12px;
+	background: $white;
+	padding: 12px 13px;
+	font-size: 0.93rem;
+	color: $gray-900;
+	outline: none;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+	border-color: $blue-400;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.check-field {
+	margin-top: 4px;
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-size: 0.86rem;
+	color: $gray-500;
+}
+
+.check-field input {
+	margin-top: 2px;
+	accent-color: $orange-500;
+}
+
+.btn-submit {
+	margin-top: 4px;
+	width: 100%;
+	border: 0;
+	border-radius: 12px;
+	padding: 14px;
+	font-size: 0.97rem;
+	font-weight: 700;
+	color: $white;
+	background: linear-gradient(135deg, $orange-500, $orange-400);
+	box-shadow: $shadow-orange;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 36px rgba(249, 115, 22, 0.4);
+}
+
+.switch-auth {
+	margin-top: 18px;
+	font-size: 0.88rem;
+	color: $gray-500;
+}
+
+.switch-auth a {
+	color: $blue-500;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.switch-auth a:hover {
+	text-decoration: underline;
+}
+
+.brand-panel {
+	padding: 32px;
+	background: linear-gradient(160deg, rgba(10, 22, 40, 0.9), rgba(13, 31, 60, 0.88));
+	display: flex;
+	flex-direction: column;
+}
+
+.brand-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	margin-bottom: 54px;
+}
+
+.brand-logo-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	display: grid;
+	place-items: center;
+	background: linear-gradient(135deg, $blue-500, $blue-400);
+	box-shadow: $shadow-blue;
+}
+
+.brand-logo-text {
+	font-size: 1.45rem;
+	font-weight: 800;
+	color: $white;
+	letter-spacing: -0.4px;
+}
+
+.brand-logo-text span {
+	color: $orange-400;
+}
+
+.brand-panel h2 {
+	font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+	line-height: 1.2;
+	letter-spacing: -0.8px;
+	margin-bottom: 14px;
+}
+
+.brand-description {
+	color: rgba(255, 255, 255, 0.62);
+	line-height: 1.72;
+	margin-bottom: 30px;
+}
+
+.benefits-list {
+	display: grid;
+	gap: 12px;
+}
+
+.benefit-item {
+	padding: 14px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.benefit-title {
+	font-size: 0.9rem;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.benefit-text {
+	font-size: 0.82rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1024px) {
+	.register-layout {
+		grid-template-columns: 1fr;
+		width: min(780px, 92vw);
+	}
+
+	.brand-panel {
+		order: -1;
+	}
+
+	.brand-logo {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 640px) {
+	.register-layout {
+		width: 94vw;
+		gap: 20px;
+		padding: 20px 0 34px;
+	}
+
+	.form-card,
+	.brand-panel {
+		border-radius: 20px;
+		padding: 22px;
+	}
+
+	.grid-two {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,5 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+import Register from "./pages/Cadastro";
+import Login from "./pages/Login";
 
 export function Router() {
   const location = useLocation();
@@ -11,6 +13,8 @@ export function Router() {
         <Routes>
           <Route>
             <Route path="/" element={<Home />} />
+            <Route path="/cadastrar" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </div>

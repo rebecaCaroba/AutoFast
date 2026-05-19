@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Footer } from '../../components/Footer';
 import { NavBar } from '../../components/NavBar';
 import './style.scss';
@@ -6,128 +7,6 @@ export default function Home() {
     return (
         <div>
             <NavBar />
-            <section className="hero">
-                <div className="hero-bg">
-                    <div className="hero-grid"></div>
-                    <div className="hero-glow-1"></div>
-                    <div className="hero-glow-2"></div>
-                </div>
-                <div className="hero-content">
-                    <div className="hero-text">
-                        <div className="hero-badge">
-                            <span className="hero-badge-dot"></span>
-                            Plataforma de orçamentos automotivos
-                        </div>
-                        <h1 className="hero-title">
-                            Orçamentos de peças<br />
-                            <span className="hero-title-accent">rápidos e organizados</span>
-                        </h1>
-                        <p className="hero-subtitle">
-                            Chega de negociar pelo WhatsApp. O AutoFast conecta clientes e mecânicos em uma plataforma profissional para gerenciar orçamentos de peças recondicionadas com agilidade e transparência.
-                        </p>
-                        <div className="hero-actions">
-                            <a href="../login/index.html" className="btn-hero-primary">
-                                🚀 Começar agora — é grátis
-                            </a>
-                            <a href="#como-funciona" className="btn-hero-secondary">
-                                ▶ Ver como funciona
-                            </a>
-                        </div>
-                        <div className="hero-stats">
-                            <div className="hero-stat">
-                                <span className="hero-stat-number">+2.400</span>
-                                <span className="hero-stat-label">Orçamentos gerados</span>
-                            </div>
-                            <div className="hero-stat-divider"></div>
-                            <div className="hero-stat">
-                                <span className="hero-stat-number">98%</span>
-                                <span className="hero-stat-label">Taxa de satisfação</span>
-                            </div>
-                            <div className="hero-stat-divider"></div>
-                            <div className="hero-stat">
-                                <span className="hero-stat-number">3x</span>
-                                <span className="hero-stat-label">Mais rápido</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="hero-visual">
-                        <div className="hero-mockup">
-                            <div className="mockup-header">
-                                <div className="mockup-title-row">
-                                    <div className="mockup-icon">🔧</div>
-                                    <div>
-                                        <div className="mockup-title">Dashboard do Mecânico</div>
-                                        <div className="mockup-subtitle">Gerenciar solicitações</div>
-                                    </div>
-                                </div>
-                                <span className="mockup-badge">● Online</span>
-                            </div>
-                            <div className="mockup-orcamentos">
-                                <div className="mockup-orcamento">
-                                    <div className="mockup-orc-left">
-                                        <div className="mockup-car-icon">🚗</div>
-                                        <div>
-                                            <div className="mockup-orc-title">Alternador — Civic 2019</div>
-                                            <div className="mockup-orc-sub">Carlos Silva · há 5 min</div>
-                                        </div>
-                                    </div>
-                                    <span className="mockup-orc-status status-pending">Pendente</span>
-                                </div>
-                                <div className="mockup-orcamento">
-                                    <div className="mockup-orc-left">
-                                        <div className="mockup-car-icon">🏎️</div>
-                                        <div>
-                                            <div className="mockup-orc-title">Caixa de Câmbio — Gol G5</div>
-                                            <div className="mockup-orc-sub">Ana Lima · há 1h</div>
-                                        </div>
-                                    </div>
-                                    <span className="mockup-orc-status status-approved">Aprovado</span>
-                                </div>
-                                <div className="mockup-orcamento">
-                                    <div className="mockup-orc-left">
-                                        <div className="mockup-car-icon">🚙</div>
-                                        <div>
-                                            <div className="mockup-orc-title">Motor de Arranque — HB20</div>
-                                            <div className="mockup-orc-sub">Pedro Costa · há 2h</div>
-                                        </div>
-                                    </div>
-                                    <span className="mockup-orc-status status-review">Em revisão</span>
-                                </div>
-                            </div>
-                            <div className="mockup-footer">
-                                <div className="mockup-stat-card">
-                                    <div className="mockup-stat-number">12</div>
-                                    <div className="mockup-stat-label">Abertas</div>
-                                </div>
-                                <div className="mockup-stat-card">
-                                    <div className="mockup-stat-number">7</div>
-                                    <div className="mockup-stat-label">Aprovadas</div>
-                                </div>
-                                <div className="mockup-stat-card">
-                                    <div className="mockup-stat-number">R$4.8k</div>
-                                    <div className="mockup-stat-label">Este mês</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="hero-float-card hero-float-card-1">
-                            <div className="float-card-icon">📸</div>
-                            <div className="float-card-content">
-                                <div className="float-card-title">Foto anexada</div>
-                                <div className="float-card-sub">alternador_frente.jpg · 2.3MB</div>
-                            </div>
-                        </div>
-                        <div className="hero-float-card hero-float-card-2">
-                            <div className="float-card-icon">✅</div>
-                            <div className="float-card-content">
-                                <div className="float-card-title">Orçamento aprovado!</div>
-                                <div className="float-card-sub">R$ 380,00 · Honda Civic</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
             {/* <!-- ── HERO ── --> */}
             <section className="hero">
                 <div className="hero-bg">
@@ -149,9 +28,9 @@ export default function Home() {
                             Chega de negociar pelo WhatsApp. O AutoFast conecta clientes e mecânicos em uma plataforma profissional para gerenciar orçamentos de peças recondicionadas com agilidade e transparência.
                         </p>
                         <div className="hero-actions">
-                            <a href="../login/index.html" className="btn-hero-primary">
+                            <Link to="/cadastrar" className="btn-hero-primary">
                                 🚀 Começar agora — é grátis
-                            </a>
+                            </Link>
                             <a href="#como-funciona" className="btn-hero-secondary">
                                 ▶ Ver como funciona
                             </a>
@@ -549,7 +428,7 @@ export default function Home() {
                         <h2 className="cta-title">Pronto para organizar seus orçamentos?</h2>
                         <p className="cta-desc">Cadastre-se gratuitamente e experimente o AutoFast. Sem cartão de crédito, sem compromisso.</p>
                         <div className="cta-actions">
-                            <a href="../login/index.html" className="btn-hero-primary">Criar conta gratuita →</a>
+                            <Link to="/cadastrar" className="btn-hero-primary">Criar conta gratuita →</Link>
                             <a href="#como-funciona" className="btn-hero-secondary">Saber mais</a>
                         </div>
                     </div>
