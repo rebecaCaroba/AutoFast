@@ -4,6 +4,7 @@ import Register from "./pages/Cadastro";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { DefaultLayout } from "./DefaultLayout";
+import CreateBudget from "./pages/CriarOrçamento";
 
 export function Router() {
 
@@ -17,6 +18,7 @@ export function Router() {
             <Route path="/login" element={<Login />} />
             <Route element={<DefaultLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/criar-orcamento" element={<CreateBudget />} />
             </Route>
           </Route>
         </Routes>

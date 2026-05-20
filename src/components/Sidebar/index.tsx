@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 export function Sidebar() {
@@ -19,26 +20,19 @@ export function Sidebar() {
             </div>
 
             <div className="sidebar-bottom">
-                <a href="#" className="nav-item">
-                    Configurações
-                </a>
-                 <a href="#" className="nav-item active">
+                <Link to="/dashboard" className="nav-item active">
                     Dashboard
-                </a>
+                </Link>
 
-                <a href="#" className="nav-item">
-                    Orçamentos
-                </a>
-
-                <a href="../criar-orcamento/index.html" className="nav-item">
-                    Novo orçamento
-                </a>
+                <Link to="/criar-orcamento" className="nav-item">
+                    Criar Orçamentos
+                </Link>
 
                 <a href="#" className="nav-item">
                     Mensagens
                 </a>
 
-                <span className="sidebar-section-label">Gerenciamento</span>
+                {/* <span className="sidebar-section-label">Gerenciamento</span> */}
 
                 <a href="#" className="nav-item">
                     Clientes
@@ -48,9 +42,6 @@ export function Sidebar() {
                     Histórico
                 </a>
 
-                <a href="#" className="nav-item">
-                    Relatórios
-                </a>
                 <a href="../landing/index.html" className="nav-item">
                     Sair
                 </a>

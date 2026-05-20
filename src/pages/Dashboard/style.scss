@@ -5,7 +5,7 @@
     background-color: #fff;
     border-radius: 8px;
     margin-bottom: 2rem;
-    max-width: 1200px;
+
 
     .dashboard-header {
         margin-bottom: 2rem;
@@ -36,6 +36,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             white-space: nowrap;
+            text-decoration: none;
 
             &:hover {
                 background-color: #0056b3;

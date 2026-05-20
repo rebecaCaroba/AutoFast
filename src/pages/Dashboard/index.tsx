@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.scss';
 import { useState } from 'react';
 
@@ -63,7 +64,7 @@ export default function Dashboard() {
                     <h1>Todos os orçamentos</h1>
                     <p className="total-orcamentos">{orcamentosFiltrados.length} orçamentos no total</p>
                 </div>
-                <button className="btn-criar-orcamento">+ Criar orçamento</button>
+                <Link to={'/criar-orcamento'} className="btn-criar-orcamento">+ Criar orçamento</Link>
             </div>
 
             <div className="filtro-container">
