@@ -1,3 +1,9 @@
+@import '../styles/config/variables';
+
 .containerLayout {
     margin: 2rem 0 0 18rem;
+}
+
+body {
+    background-color: $gray-50 !important; 
 }
