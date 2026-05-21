@@ -1,12 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './style.scss';
+import { useState } from 'react';
 
 export function Sidebar() {
+    const location = useLocation();
+    const [activeLink, setActiveLink] = useState(location.pathname);
+
+    function handleLinkClick(link: string)  {
+    setActiveLink(link)
+
+    const element = document.querySelector('#aside') as HTMLElement
+
+    element.classList.toggle('active')
+  }
+  
+
     return (
         <aside className="sidebar" id="sidebar">
 
             <a href="../landing/index.html" className="sidebar-logo">
-                <div className="sidebar-logo-icon">⚡</div>
                 <span className="sidebar-logo-text">Auto<span>Fast</span></span>
             </a>
 
@@ -20,31 +32,38 @@ export function Sidebar() {
             </div>
 
             <div className="sidebar-bottom">
-                <Link to="/dashboard" className="nav-item active">
+                <Link to="/dashboard" 
+                className={`nav-item ${activeLink === '/dashboard' ? 'active' : ''}`} 
+                onClick={() => handleLinkClick('/dashboard')}
+                >
                     Dashboard
                 </Link>
 
-                <Link to="/criar-orcamento" className="nav-item">
+                <Link 
+                to="/criar-orcamento" 
+                className={`nav-item ${activeLink === '/criar-orcamento' ? 'active' : ''}`} 
+                onClick={() => handleLinkClick('/criar-orcamento')}
+                >
                     Criar Orçamentos
                 </Link>
-
+            
                 <a href="#" className="nav-item">
-                    Mensagens
-                </a>
+                    Configurações
+                </a> 
 
                 {/* <span className="sidebar-section-label">Gerenciamento</span> */}
 
-                <a href="#" className="nav-item">
+                {/* <a href="#" className="nav-item">
                     Clientes
                 </a>
 
                 <a href="#" className="nav-item">
                     Histórico
-                </a>
+                </a> */}
 
-                <a href="../landing/index.html" className="nav-item">
+                <Link to="/" className="nav-item">
                     Sair
-                </a>
+                </Link>
             </div>
         </aside>
     );
