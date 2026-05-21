@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavBar } from '../../components/NavBar';
 import './style.scss';
 
 export default function Register() {
+	const navigate = useNavigate();
+
     return (
         <>
         <NavBar />
@@ -14,8 +16,6 @@ export default function Register() {
     	<main className="register-layout">
 		<section className="form-panel" aria-label="Formulario de cadastro">
 			<div className="form-card">
-				<a href="../index.html" className="back-link">← Voltar para home</a>
-
 				<div className="form-header">
 					<p className="badge">Comece gratis</p>
 					<h1>Criar conta no AutoFast</h1>
@@ -70,35 +70,13 @@ export default function Register() {
 						<span>Aceito os termos de uso e a politica de privacidade.</span>
 					</label>
 
-					<button type="submit" className="btn-submit">Criar minha conta</button>
+					<button type="submit" className="btn-submit" onClick={() => navigate('/dashboard/')}>Criar minha conta</button>
 				</form>
 
 				<p className="switch-auth">
 					Ja possui uma conta?
 					<Link to="/login">Entrar agora</Link>
 				</p>
-			</div>
-		</section>
-
-		<section className="brand-panel" aria-label="Beneficios da plataforma">
-			<h2>Digitalize o seu atendimento sem complicacao.</h2>
-			<p className="brand-description">
-				Com o AutoFast voce tira os orcamentos do WhatsApp e coloca todo o processo em um fluxo profissional, rapido e rastreavel.
-			</p>
-
-			<div className="benefits-list" aria-label="Lista de beneficios">
-				<article className="benefit-item">
-					<p className="benefit-title">Solicitacoes centralizadas</p>
-					<p className="benefit-text">Cada pedido chega com dados completos e fotos da peca.</p>
-				</article>
-				<article className="benefit-item">
-					<p className="benefit-title">Negociacao por status</p>
-					<p className="benefit-text">Acompanhe aprovacoes e pendencias sem perder mensagens.</p>
-				</article>
-				<article className="benefit-item">
-					<p className="benefit-title">Visao de crescimento</p>
-					<p className="benefit-text">Mensure conversoes e faturamento em um painel intuitivo.</p>
-				</article>
 			</div>
 		</section>
 	</main>

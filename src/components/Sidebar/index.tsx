@@ -7,20 +7,15 @@ export function Sidebar() {
     const [activeLink, setActiveLink] = useState(location.pathname);
 
     function handleLinkClick(link: string)  {
-    setActiveLink(link)
-
-    const element = document.querySelector('#aside') as HTMLElement
-
-    element.classList.toggle('active')
-  }
+        setActiveLink(link)
+    }
   
-
     return (
         <aside className="sidebar" id="sidebar">
 
-            <a href="../landing/index.html" className="sidebar-logo">
+            <Link to="/" className="sidebar-logo">
                 <span className="sidebar-logo-text">Auto<span>Fast</span></span>
-            </a>
+            </Link>
 
             <div className="sidebar-profile">
                 <div className="sidebar-avatar">RM</div>

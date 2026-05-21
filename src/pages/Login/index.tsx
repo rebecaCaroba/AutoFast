@@ -1,8 +1,10 @@
 import './style.scss';
 import { NavBar } from '../../components/NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
+	const navigate = useNavigate();
+
   return (
     <>
         <NavBar />
@@ -13,25 +15,6 @@ export default function Login() {
 	</div>
 
 	<main className="auth-layout">
-		<section className="brand-panel" aria-label="Apresentacao da plataforma">
-			<a href="../index.html" className="brand-logo" aria-label="Voltar para home">
-				<span className="brand-logo-icon">⚡</span>
-				<span className="brand-logo-text">Auto<span>Fast</span></span>
-			</a>
-
-			<p className="panel-eyebrow">Plataforma automotiva inteligente</p>
-			<h1>Seu painel de orcamentos com velocidade de oficina.</h1>
-			<p className="panel-description">
-				Entre na sua conta para acompanhar solicitacoes, responder clientes e manter todo o historico de pecas organizado em um so lugar.
-			</p>
-
-			<ul className="panel-highlights" aria-label="Beneficios principais">
-				<li>Resposta rapida para cada novo pedido.</li>
-				<li>Historico completo de orcamentos e negociações.</li>
-				<li>Fluxo simples para clientes e mecanicos.</li>
-			</ul>
-		</section>
-
 		<section className="form-panel" aria-label="Formulario de login">
 			<div className="form-card">
 				<div className="form-header">
@@ -50,7 +33,7 @@ export default function Login() {
 					</div>
 					<input id="senha" name="senha" type="password" placeholder="Digite sua senha" required />
 
-					<button type="submit" className="btn-submit">Entrar agora</button>
+					<button type="submit" className="btn-submit" onClick={() => navigate('/dashboard/')}>Entrar agora</button>
 				</form>
 
 				<p className="switch-auth">
