@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default function Budget() {
@@ -13,6 +14,7 @@ export default function Budget() {
                         <h1>Alternador — Honda Civic 2019</h1>
                         <p>Solicitado em 20/05/2025 às 09:14 · Oficina Mendes</p>
                     </div>
+                    <Link to={'/chat'} className="btn-chat">Chat</Link>
                 </header>
 
                 <div className="budget-grid">

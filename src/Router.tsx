@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import { DefaultLayout } from "./DefaultLayout";
 import CreateBudget from "./pages/CriarOrcamento";
 import Budget from "./pages/Orcamento";
+import Chat from "./pages/Chat";
 
 export function Router() {
 
@@ -21,6 +22,7 @@ export function Router() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/criar-orcamento" element={<CreateBudget />} />
               <Route path="/orcamento" element={<Budget />} />
+              <Route path="/chat" element={<Chat />} />
             </Route>
           </Route>
         </Routes>
