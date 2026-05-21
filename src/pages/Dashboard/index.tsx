@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style.scss';
 import { useState } from 'react';
 
@@ -20,6 +20,7 @@ const dados: Orcamento[] = [
 
 export default function Dashboard() {
     const [filtro, setFiltro] = useState('');
+    const navigate = useNavigate();
 
     const orcamentosFiltrados = dados.filter(orcamento =>
         orcamento.cliente.toLowerCase().includes(filtro.toLowerCase()) ||
@@ -91,7 +92,7 @@ export default function Dashboard() {
                     </thead>
                     <tbody>
                         {orcamentosFiltrados.map((orcamento) => (
-                            <tr key={orcamento.id}>
+                            <tr key={orcamento.id} onClick={() => navigate('/orcamento')}>
                                 <td>
                                     <div className="cliente-info">
                                         <div className="cliente-avatar">{orcamento.cliente.charAt(0)}</div>
