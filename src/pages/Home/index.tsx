@@ -5,7 +5,7 @@ import './style.scss';
 
 export default function Home() {
     return (
-        <div>
+        <div className="home-page">
             <NavBar />
             {/* <!-- ── HERO ── --> */}
             <section className="hero">
