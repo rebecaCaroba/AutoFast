@@ -41,6 +41,14 @@ export function Sidebar() {
                 >
                     Criar Orçamentos
                 </Link>
+                
+                <Link 
+                to="solicitar-orcamento" 
+                className={`nav-item ${activeLink === 'solicitar-orcamento' ? 'active' : ''}`} 
+                onClick={() => handleLinkClick('solicitar-orcamento')}
+                >
+                    Solicitar Orçamentos
+                </Link>
             
                 <a href="#" className="nav-item">
                     Configurações

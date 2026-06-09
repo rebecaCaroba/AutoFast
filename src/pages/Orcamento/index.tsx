@@ -1,7 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './style.scss';
+import { useState } from 'react';
+
+const valueFields = [
+    { label: 'Valor da peça (R$)', placeholder: '100' },
+    { label: 'Valor da mão de obra (R$)', placeholder: '0,00' },
+    { label: 'Desconto (R$)', placeholder: '0,00' },
+    { label: 'Prazo de entrega', placeholder: 'Selecionar prazo...' },
+    { label: 'Garantia da peça', placeholder: 'Selecionar...' },
+    { label: 'Validade do orçamento', placeholder: '7 dias' },
+];
+
+const paymentOptions = ['Pix', 'Cartão de crédito', 'Cartão de débito', 'Boleto', 'Dinheiro'];
+
 
 export default function Budget() {
+    const parameters = useParams();
+    const [value, setValue] = useState<number>(100);
+
+    const formatarMoeda = (value: number) => {
+        return value.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+    };
+
     return (
         <main className="budget-page">
             <section className="budget-shell">
@@ -9,80 +32,21 @@ export default function Budget() {
                     <div className="budget-header-top">
                         <div className="budget-badges">
                             <span className="budget-id">#ORC-0047</span>
-                            <span className="budget-status budget-status-active">Em análise</span>
+                            <span className="budget-status budget-status-active">{parameters.id}</span>
                         </div>
                         <h1>Alternador — Honda Civic 2019</h1>
                         <p>Solicitado em 20/05/2025 às 09:14 · Oficina Mendes</p>
                     </div>
-                    <Link to={'/chat'} className="btn-chat">Chat</Link>
+                    <div>
+                        <Link to={'/acompanhar-orcamento'} className="btn-chat" style={{ marginRight: '24px', }}>Acompanhar orçamento</Link>
+                        <Link to={'/chat'} className="btn-chat">Chat</Link>
+                    </div>
                 </header>
 
                 <div className="budget-grid">
-                    <section className="card-surface budget-card budget-status-card">
-                        <div className="section-heading">
-                            <div className="section-icon section-icon-blue">🧭</div>
-                            <div>
-                                <h2>Acompanhamento do status</h2>
-                                <p>Progresso atual do orçamento</p>
-                            </div>
-                        </div>
 
-                        <div className="timeline">
-                            <article className="timeline-item timeline-done">
-                                <div className="timeline-marker">✓</div>
-                                <div className="timeline-content">
-                                    <strong>Orçamento solicitado</strong>
-                                    <p>Você enviou a solicitação com fotos e descrição do problema.</p>
-                                    <span>20/05/2025 · 09:14</span>
-                                </div>
-                            </article>
 
-                            <article className="timeline-item timeline-done">
-                                <div className="timeline-marker">✓</div>
-                                <div className="timeline-content">
-                                    <strong>Recebido pelo mecânico</strong>
-                                    <p>Roberto Mendes recebeu e está analisando as fotos da peça.</p>
-                                    <span>20/05/2025 · 09:31</span>
-                                </div>
-                            </article>
-
-                            <article className="timeline-item timeline-done">
-                                <div className="timeline-marker">✓</div>
-                                <div className="timeline-content">
-                                    <strong>Orçamento enviado</strong>
-                                    <p>O mecânico respondeu com valor, prazo e condições de serviço.</p>
-                                    <span>20/05/2025 · 11:45</span>
-                                </div>
-                            </article>
-
-                            <article className="timeline-item timeline-active">
-                                <div className="timeline-marker timeline-marker-active">•</div>
-                                <div className="timeline-content">
-                                    <strong>Aguardando sua aprovação</strong>
-                                    <p>Revise o orçamento e decida se aprova, rejeita ou solicita ajustes.</p>
-                                    <span>Agora</span>
-                                </div>
-                            </article>
-
-                            <article className="timeline-item timeline-muted">
-                                <div className="timeline-marker timeline-marker-muted">4</div>
-                                <div className="timeline-content">
-                                    <strong>Serviço agendado</strong>
-                                    <p>Após aprovação, o serviço será agendado com a oficina.</p>
-                                </div>
-                            </article>
-
-                            <article className="timeline-item timeline-muted">
-                                <div className="timeline-marker timeline-marker-muted">5</div>
-                                <div className="timeline-content">
-                                    <strong>Concluído</strong>
-                                    <p>Serviço executado e orçamento arquivado no histórico.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section className="card-surface budget-card budget-response-card">
+                    <section className={`card-surface budget-card budget-response-card ${parameters.id == "Pendente" ? "hiden" : ""}`}  >
                         <div className="section-heading">
                             <div className="section-icon section-icon-orange">🛠️</div>
                             <div>
@@ -220,6 +184,43 @@ export default function Budget() {
                             </div>
                         </div>
                     </section>
+
+                    <section className="card form-card">
+                        <div className="t">
+                            <div>
+                                <h2>Valor e prazo</h2>
+                                <p>Defina o valor do orçamento e condições de pagamento</p>
+                            </div>
+                        </div>
+                        <div className="field-grid field-grid-2">
+                            {valueFields.map((field) => (
+                                <label key={field.label} className="field">
+                                    <span>{field.label} *</span>
+                                    <input type="text" placeholder={field.placeholder} />
+                                </label>
+                            ))}
+                        </div>
+                        <div className="payment-row">
+                            <span>Formas de pagamento aceitas</span>
+                            <div className="payment-options">
+                                {paymentOptions.map((option, index) => (
+                                    <label key={option} className="checkbox-chip">
+                                        <input type="checkbox" defaultChecked={index === 0} />
+                                        <span>{option}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="total-box">
+                            <div>
+                                <span>TOTAL DO ORÇAMENTO</span>
+                                <strong>Peça + mão de obra - desconto</strong>
+                            </div>
+                            <b>{formatarMoeda(value)}</b>
+                        </div>
+                    </section>
+                    <button type="button" className="primary-button full">Enviar orçamento ao cliente</button>
+                    <br /> <br />
                 </div>
             </section>
         </main>

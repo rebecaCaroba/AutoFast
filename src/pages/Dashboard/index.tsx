@@ -92,7 +92,7 @@ export default function Dashboard() {
                     </thead>
                     <tbody>
                         {orcamentosFiltrados.map((orcamento) => (
-                            <tr key={orcamento.id} onClick={() => navigate('/orcamento')}>
+                            <tr key={orcamento.id} onClick={() => navigate(`/orcamento/${orcamento.status}`)} className="table-row">
                                 <td>
                                     <div className="cliente-info">
                                         <div className="cliente-avatar">{orcamento.cliente.charAt(0)}</div>
