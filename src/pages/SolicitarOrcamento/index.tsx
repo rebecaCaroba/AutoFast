@@ -1,11 +1,3 @@
-const clientFields = [
-    { label: 'Buscar cliente', placeholder: 'Rebeca' },
-    { label: 'Nome completo', placeholder: 'Ex: Carlos Alberto Silva' },
-    { label: 'Telefone / WhatsApp', placeholder: '(11) 99999-9999' },
-    { label: 'E-mail', placeholder: 'cliente@email.com' },
-    { label: 'CPF / CNPJ', placeholder: '00.000.000/00-00' },
-];
-
 const vehicleFields = [
     { label: 'Marca', placeholder: 'Selecionar marca...' },
     { label: 'Modelo', placeholder: 'Ex: Civic, Gol, Corolla...' },

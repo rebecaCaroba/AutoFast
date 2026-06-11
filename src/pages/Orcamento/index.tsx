@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import './style.scss';
-import { useState } from 'react';
 
 const valueFields = [
     { label: 'Valor da peça (R$)', placeholder: '100' },
@@ -16,7 +15,6 @@ const paymentOptions = ['Pix', 'Cartão de crédito', 'Cartão de débito', 'Bol
 
 export default function Budget() {
     const parameters = useParams();
-    const [value, setValue] = useState<number>(100);
 
     const formatarMoeda = (value: number) => {
         return value.toLocaleString('pt-BR', {
@@ -216,7 +214,7 @@ export default function Budget() {
                                 <span>TOTAL DO ORÇAMENTO</span>
                                 <strong>Peça + mão de obra - desconto</strong>
                             </div>
-                            <b>{formatarMoeda(value)}</b>
+                            <b>{formatarMoeda(100)}</b>
                         </div>
                     </section>
                     <button type="button" className="primary-button full">Enviar orçamento ao cliente</button>
