@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import './style.scss';
+
 const vehicleFields = [
     { label: 'Marca', placeholder: 'Selecionar marca...' },
     { label: 'Modelo', placeholder: 'Ex: Civic, Gol, Corolla...' },
@@ -26,6 +29,83 @@ const valueFields = [
 const paymentOptions = ['Pix', 'Cartão de crédito', 'Cartão de débito', 'Boleto', 'Dinheiro'];
 
 export default function RequestBudget() {
+    const [currentStep, setCurrentStep] = useState(0);
+
+    const steps = [
+        {
+            title: 'Dados do veículo',
+            description: 'Preencha os dados básicos do carro antes de seguir.',
+            content: (
+                <div className="field-grid field-grid-2">
+                    {vehicleFields.map((field) => (
+                        <label key={field.label} className="field">
+                            <span>{field.label} *</span>
+                            <input type="text" placeholder={field.placeholder} />
+                        </label>
+                    ))}
+                </div>
+            ),
+        },
+        {
+            title: 'Peça e serviço',
+            description: 'Descreva o problema e o tipo de peça necessário.',
+            content: (
+                <>
+                    <div className="field-grid field-grid-2">
+                        {serviceFields.map((field) => (
+                            <label key={field.label} className="field">
+                                <span>{field.label} *</span>
+                                <input type="text" placeholder={field.placeholder} />
+                            </label>
+                        ))}
+                    </div>
+                    <label className="field field-full">
+                        <span>Descrição do problema *</span>
+                        <textarea placeholder="Descreva detalhadamente o problema relatado pelo cliente..." rows={5} />
+                    </label>
+                    <label className="field field-full">
+                        <span>Observações internas</span>
+                        <textarea placeholder="Anotações internas (não serão exibidas para o cliente)..." rows={3} />
+                    </label>
+                </>
+            ),
+        },
+        {
+            title: 'Fotos da peça',
+            description: 'Anexe imagens para facilitar a avaliação.',
+            content: (
+                <>
+                    <div className="upload-box">
+                        <div className="upload-icon">📷</div>
+                        <p><strong>Arraste fotos aqui ou clique para selecionar</strong></p>
+                        <span>Você pode enviar múltiplas imagens da peça</span>
+                        <div className="tag-list">
+                            <span>JPG</span>
+                            <span>PNG</span>
+                            <span>HEIC</span>
+                            <span>PDF</span>
+                            <span>MP4</span>
+                        </div>
+                    </div>
+                    <div className="photo-thumbs">
+                        <div className="thumb-card" />
+                        <div className="thumb-card" />
+                    </div>
+                </>
+            ),
+        },
+    ];
+
+    const currentStepData = steps[currentStep];
+
+    const goPrevious = () => {
+        setCurrentStep((step) => Math.max(step - 1, 0));
+    };
+
+    const goNext = () => {
+        setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
+    };
+
     return (
         <main className="create-budget-page">
             <div className="create-budget-shell">
@@ -33,97 +113,34 @@ export default function RequestBudget() {
                 <br />
                 <div className="form-stack">
                     <div className='cards'>
+                        <section className="card form-card">
+                            <div className="t step-header">
+                                <div>
+                                    <h2>{currentStepData.title}</h2>
+                                    <p>{currentStepData.description}</p>
+                                </div>
+                                <span className="step-badge">Etapa {currentStep + 1} de {steps.length}</span>
+                            </div>
 
-                        <section className="card form-card">
-                            <div className="">
-                                <h2>Dados do veículo</h2>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {vehicleFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <h2>Peça e serviço</h2>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {serviceFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                            <label className="field field-full">
-                                <span>Descrição do problema *</span>
-                                <textarea placeholder="Descreva detalhadamente o problema relatado pelo cliente..." rows={5} />
-                            </label>
-                            <label className="field field-full">
-                                <span>Observações internas</span>
-                                <textarea placeholder="Anotações internas (não serão exibidas para o cliente)..." rows={3} />
-                            </label>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <div>
-                                    <h2>Fotos da peça</h2>
-                                    <p>Imagens ajudam na avaliação da peça ou veículo</p>
-                                </div>
-                            </div>
-                            <div className="upload-box">
-                                <div className="upload-icon">📷</div>
-                                <p><strong>Arraste fotos aqui ou clique para selecionar</strong></p>
-                                <span>Você pode enviar múltiplas imagens da peça</span>
-                                <div className="tag-list">
-                                    <span>JPG</span>
-                                    <span>PNG</span>
-                                    <span>HEIC</span>
-                                    <span>PDF</span>
-                                    <span>MP4</span>
-                                </div>
-                            </div>
-                            <div className="photo-thumbs">
-                                <div className="thumb-card" />
-                                <div className="thumb-card" />
-                            </div>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <div>
-                                    <h2>Valor e prazo</h2>
-                                    <p>Defina o valor do orçamento e condições de pagamento</p>
-                                </div>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {valueFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                            <div className="payment-row">
-                                <span>Formas de pagamento aceitas</span>
-                                <div className="payment-options">
-                                    {paymentOptions.map((option, index) => (
-                                        <label key={option} className="checkbox-chip">
-                                            <input type="checkbox" defaultChecked={index === 0} />
-                                            <span>{option}</span>
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="total-box">
-                                <div>
-                                    <span>TOTAL DO ORÇAMENTO</span>
-                                    <strong>Peça + mão de obra - desconto</strong>
-                                </div>
-                                <b>R$ 100,00</b>
+                            {currentStepData.content}
+
+                            <div className="step-actions">
+                                <button
+                                    type="button"
+                                    className="ghost-button"
+                                    onClick={goPrevious}
+                                    disabled={currentStep === 0}
+                                >
+                                    ← Anterior
+                                </button>
+                                <button
+                                    type="button"
+                                    className="primary-button"
+                                    onClick={goNext}
+                                    disabled={currentStep === steps.length - 1}
+                                >
+                                    Próxima →
+                                </button>
                             </div>
                         </section>
                     </div>
@@ -139,8 +156,6 @@ export default function RequestBudget() {
                             <div><span>Veículo</span><strong>Não informado</strong></div>
                             <div><span>Peça</span><strong>Não selecionada</strong></div>
                             <div><span>Fotos</span><strong>2 arquivos</strong></div>
-                            <div><span>Valor</span><strong>R$ 100,00</strong></div>
-                            <div><span>Prazo</span><strong>Não definido</strong></div>
                             <div><span>Status inicial</span><strong className="status pending">• Pendente</strong></div>
                         </div>
 

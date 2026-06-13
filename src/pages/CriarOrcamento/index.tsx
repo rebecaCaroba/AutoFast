@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './style.scss';
 
 const clientFields = [
@@ -36,6 +37,134 @@ const valueFields = [
 const paymentOptions = ['Pix', 'Cartão de crédito', 'Cartão de débito', 'Boleto', 'Dinheiro'];
 
 export default function CreateBudget() {
+    const [currentStep, setCurrentStep] = useState<number>(0);
+
+    const steps = [
+        {
+            title: 'Dados do cliente',
+            description: 'Selecione um cliente existente ou cadastre um novo.',
+            content: (
+                <>
+                    <div className="field-grid field-grid-2">
+                        {clientFields.map((field) => (
+                            <label key={field.label} className="field">
+                                <span>{field.label} *</span>
+                                <input type="text" placeholder={field.placeholder} />
+                            </label>
+                        ))}
+                    </div>
+                    <p className="helper-line">Dica: busque pelo menos 3 caracteres para buscar. <a href="#">Cadastrar novo cliente</a></p>
+                </>
+            ),
+        },
+        {
+            title: 'Dados do veículo',
+            description: 'Informe as características principais do veículo.',
+            content: (
+                <div className="field-grid field-grid-2">
+                    {vehicleFields.map((field) => (
+                        <label key={field.label} className="field">
+                            <span>{field.label} *</span>
+                            <input type="text" placeholder={field.placeholder} />
+                        </label>
+                    ))}
+                </div>
+            ),
+        },
+        {
+            title: 'Peça e serviço',
+            description: 'Descreva a peça, o problema e observações internas.',
+            content: (
+                <>
+                    <div className="field-grid field-grid-2">
+                        {serviceFields.map((field) => (
+                            <label key={field.label} className="field">
+                                <span>{field.label} *</span>
+                                <input type="text" placeholder={field.placeholder} />
+                            </label>
+                        ))}
+                    </div>
+                    <label className="field field-full">
+                        <span>Descrição do problema *</span>
+                        <textarea placeholder="Descreva detalhadamente o problema relatado pelo cliente..." rows={5} />
+                    </label>
+                    <label className="field field-full">
+                        <span>Observações internas</span>
+                        <textarea placeholder="Anotações internas (não serão exibidas para o cliente)..." rows={3} />
+                    </label>
+                </>
+            ),
+        },
+        {
+            title: 'Fotos da peça',
+            description: 'Anexe imagens para facilitar a avaliação.',
+            content: (
+                <>
+                    <div className="upload-box">
+                        <div className="upload-icon">📷</div>
+                        <p><strong>Arraste fotos aqui ou clique para selecionar</strong></p>
+                        <span>Você pode enviar múltiplas imagens da peça</span>
+                        <div className="tag-list">
+                            <span>JPG</span>
+                            <span>PNG</span>
+                            <span>HEIC</span>
+                            <span>PDF</span>
+                            <span>MP4</span>
+                        </div>
+                    </div>
+                    <div className="photo-thumbs">
+                        <div className="thumb-card" />
+                        <div className="thumb-card" />
+                    </div>
+                </>
+            ),
+        },
+        {
+            title: 'Valor e prazo',
+            description: 'Defina o valor do orçamento e as condições de pagamento.',
+            content: (
+                <>
+                    <div className="field-grid field-grid-2">
+                        {valueFields.map((field) => (
+                            <label key={field.label} className="field">
+                                <span>{field.label} *</span>
+                                <input type="text" placeholder={field.placeholder} />
+                            </label>
+                        ))}
+                    </div>
+                    <div className="payment-row">
+                        <span>Formas de pagamento aceitas</span>
+                        <div className="payment-options">
+                            {paymentOptions.map((option, index) => (
+                                <label key={option} className="checkbox-chip">
+                                    <input type="checkbox" defaultChecked={index === 0} />
+                                    <span>{option}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="total-box">
+                        <div>
+                            <span>TOTAL DO ORÇAMENTO</span>
+                            <strong>Peça + mão de obra - desconto</strong>
+                        </div>
+                        <b>R$ 100,00</b>
+                    </div>
+                </>
+            ),
+        },
+    ];
+
+    const currentStepData = steps[currentStep];
+
+    const goPrevious = () => {
+        setCurrentStep((step: number) => Math.max(step - 1, 0));
+    };
+
+    const goNext = () => {
+        setCurrentStep((step: number) => Math.min(step + 1, steps.length - 1));
+    };
+
     return (
         <main className="create-budget-page">
             <div className="create-budget-shell">
@@ -44,112 +173,33 @@ export default function CreateBudget() {
                 <div className="form-stack">
                     <div className='cards'>
                         <section className="card form-card">
-                            <div className="t">
+                            <div className="t step-header">
                                 <div>
-                                    <h2>Dados do cliente</h2>
-                                    <p>Selecione um cliente existente ou cadastre um novo</p>
+                                    <h2>{currentStepData.title}</h2>
+                                    <p>{currentStepData.description}</p>
                                 </div>
+                                <span className="step-badge">Etapa {currentStep + 1} de {steps.length}</span>
                             </div>
-                            <div className="field-grid field-grid-2">
-                                {clientFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                            <p className="helper-line">Dica: busque pelo menos 3 caracteres para buscar. <a href="#">Cadastrar novo cliente</a></p>
-                        </section>
-                        <section className="card form-card">
-                            <div className="">
-                                <h2>Dados do veículo</h2>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {vehicleFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <h2>Peça e serviço</h2>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {serviceFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                            <label className="field field-full">
-                                <span>Descrição do problema *</span>
-                                <textarea placeholder="Descreva detalhadamente o problema relatado pelo cliente..." rows={5} />
-                            </label>
-                            <label className="field field-full">
-                                <span>Observações internas</span>
-                                <textarea placeholder="Anotações internas (não serão exibidas para o cliente)..." rows={3} />
-                            </label>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <div>
-                                    <h2>Fotos da peça</h2>
-                                    <p>Imagens ajudam na avaliação da peça ou veículo</p>
-                                </div>
-                            </div>
-                            <div className="upload-box">
-                                <div className="upload-icon">📷</div>
-                                <p><strong>Arraste fotos aqui ou clique para selecionar</strong></p>
-                                <span>Você pode enviar múltiplas imagens da peça</span>
-                                <div className="tag-list">
-                                    <span>JPG</span>
-                                    <span>PNG</span>
-                                    <span>HEIC</span>
-                                    <span>PDF</span>
-                                    <span>MP4</span>
-                                </div>
-                            </div>
-                            <div className="photo-thumbs">
-                                <div className="thumb-card" />
-                                <div className="thumb-card" />
-                            </div>
-                        </section>
-                        <section className="card form-card">
-                            <div className="t">
-                                <div>
-                                    <h2>Valor e prazo</h2>
-                                    <p>Defina o valor do orçamento e condições de pagamento</p>
-                                </div>
-                            </div>
-                            <div className="field-grid field-grid-2">
-                                {valueFields.map((field) => (
-                                    <label key={field.label} className="field">
-                                        <span>{field.label} *</span>
-                                        <input type="text" placeholder={field.placeholder} />
-                                    </label>
-                                ))}
-                            </div>
-                            <div className="payment-row">
-                                <span>Formas de pagamento aceitas</span>
-                                <div className="payment-options">
-                                    {paymentOptions.map((option, index) => (
-                                        <label key={option} className="checkbox-chip">
-                                            <input type="checkbox" defaultChecked={index === 0} />
-                                            <span>{option}</span>
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="total-box">
-                                <div>
-                                    <span>TOTAL DO ORÇAMENTO</span>
-                                    <strong>Peça + mão de obra - desconto</strong>
-                                </div>
-                                <b>R$ 100,00</b>
+
+                            {currentStepData.content}
+
+                            <div className="step-actions">
+                                <button
+                                    type="button"
+                                    className="ghost-button"
+                                    onClick={goPrevious}
+                                    disabled={currentStep === 0}
+                                >
+                                    ← Anterior
+                                </button>
+                                <button
+                                    type="button"
+                                    className="primary-button"
+                                    onClick={goNext}
+                                    disabled={currentStep === steps.length - 1}
+                                >
+                                    Próxima →
+                                </button>
                             </div>
                         </section>
                     </div>
