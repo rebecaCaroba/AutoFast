@@ -1,0 +1,363 @@
+@import '../../../styles/config/variables';
+
+.dashboard-mechanic {
+    min-height: 100vh;
+    color: $gray-800;
+    padding: 16px;
+
+    .dashboard-mechanic-shell {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .dashboard-mechanic-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 18px;
+    }
+
+    .dashboard-mechanic-title {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: $gray-900;
+        margin-bottom: 2px;
+    }
+
+    .dashboard-mechanic-subtitle {
+        font-size: 12px;
+        color: $gray-500;
+    }
+
+    .dashboard-mechanic-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .dashboard-mechanic-action-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 34px;
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid $gray-200;
+        background: $white;
+        color: $gray-700;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .dashboard-mechanic-action-button--ghost {
+        background: rgba($white, 0.96);
+    }
+
+    .dashboard-mechanic-action-button--primary {
+        border-color: $orange-500;
+        background: linear-gradient(180deg, $orange-400 0%, $orange-500 100%);
+        color: $white;
+        box-shadow: $shadow-orange;
+    }
+
+    .dashboard-mechanic-board {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(240px, 1fr));
+        gap: 12px;
+        align-items: start;
+        padding-bottom: 6px;
+        overflow-x: auto;
+        max-height: 100%;
+
+        &::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $gray-300;
+            border-radius: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $gray-100;
+            border-radius: 8px;
+        }
+    }
+
+    .dashboard-mechanic-column {
+        min-height: calc(100vh - 108px);
+        border: 1px solid $gray-200;
+        border-radius: 14px;
+        box-shadow: $shadow-sm;
+        padding: 12px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+
+        [data-accent='blue'] & .dashboard-mechanic-column-dot,
+        &[data-accent='blue'] .dashboard-mechanic-column-dot {
+            background: $blue-500;
+        }
+
+        &[data-accent='purple'] .dashboard-mechanic-column-dot {
+            background: #8b5cf6;
+        }
+
+        &[data-accent='yellow'] .dashboard-mechanic-column-dot {
+            background: #f59e0b;
+        }
+
+        &[data-accent='orange'] .dashboard-mechanic-column-dot {
+            background: $orange-400;
+        }
+
+        &[data-accent='green'] .dashboard-mechanic-column-dot {
+            background: $green-500;
+        }
+
+        &[data-accent='gray'] .dashboard-mechanic-column-dot {
+            background: $gray-400;
+        }
+    }
+
+    .dashboard-mechanic-column-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 2px 2px 0;
+    }
+
+    .dashboard-mechanic-column-title-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .dashboard-mechanic-column-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        flex: 0 0 auto;
+    }
+
+    .dashboard-mechanic-column-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: $gray-900;
+        white-space: nowrap;
+    }
+
+    .dashboard-mechanic-column-count {
+        height: 18px;
+        min-width: 18px;
+        padding: 0 6px;
+        border-radius: 999px;
+        border: 1px solid $gray-300;
+        background: $white;
+        color: $gray-500;
+        font-size: 11px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dashboard-mechanic-column-add {
+        width: 24px;
+        height: 24px;
+        border-radius: 8px;
+        border: 1px solid $gray-200;
+        background: $white;
+        color: $gray-400;
+        font-size: 16px;
+        line-height: 1;
+        cursor: pointer;
+        flex: 0 0 auto;
+    }
+
+    .dashboard-mechanic-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1 1 auto;
+    }
+
+    .dashboard-mechanic-card {
+        background: $white;
+        border: 1px solid $gray-200;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        padding: 10px 10px 11px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 140px;
+    }
+
+    .dashboard-mechanic-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .dashboard-mechanic-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 22px;
+        padding: 0 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+
+        &[data-tone='blue'] {
+            background: $blue-100;
+            color: $blue-600;
+        }
+
+        &[data-tone='orange'] {
+            background: $orange-100;
+            color: $orange-500;
+        }
+
+        &[data-tone='green'] {
+            background: $green-100;
+            color: $green-500;
+        }
+    }
+
+    .dashboard-mechanic-time {
+        font-size: 11px;
+        color: $gray-500;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        flex: 0 0 auto;
+    }
+
+    .dashboard-mechanic-code {
+        font-size: 10px;
+        font-weight: 700;
+        color: $gray-500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .dashboard-mechanic-card-title {
+        font-size: 15px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: $gray-900;
+    }
+
+    .dashboard-mechanic-card-text {
+        font-size: 12px;
+        color: $gray-500;
+        line-height: 1.45;
+    }
+
+    .dashboard-mechanic-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 4px;
+    }
+
+    .dashboard-mechanic-price {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        color: $gray-900;
+    }
+
+    .dashboard-mechanic-avatar {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: 800;
+        color: $white;
+
+        &[data-tone='blue'] {
+            background: $blue-500;
+        }
+
+        &[data-tone='orange'] {
+            background: $orange-500;
+        }
+
+        &[data-tone='green'] {
+            background: $green-500;
+        }
+    }
+
+    .dashboard-mechanic-add-new {
+        display: inline-flex;
+        gap: 0.5rem;
+        border: 0;
+        background: transparent;
+        color: $gray-500;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 4px 2px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 1400px) {
+        .dashboard-mechanic-board {
+            grid-template-columns: repeat(3, minmax(260px, 1fr));
+        }
+    }
+
+    @media (max-width: 980px) {
+        .dashboard-mechanic {
+            padding: 12px;
+        }
+
+        .dashboard-mechanic-header {
+            flex-direction: column;
+        }
+
+        .dashboard-mechanic-actions {
+            justify-content: flex-start;
+        }
+
+        .dashboard-mechanic-board {
+            grid-template-columns: repeat(2, minmax(250px, 1fr));
+        }
+    }
+
+    @media (max-width: 640px) {
+        .dashboard-mechanic-board {
+            grid-template-columns: minmax(260px, 1fr);
+        }
+
+        .dashboard-mechanic-action-button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .dashboard-mechanic-actions {
+            width: 100%;
+        }
+    }
+
+}

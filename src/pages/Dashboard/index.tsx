@@ -1,11 +1,17 @@
 import { DashboardClient } from "./DashboardClient";
+import { DashboardMechanic } from "./DashboardMechanic";
 
 export default function Dashboard() {
-   return (
-    <>
-        Dashboard
+    const user = 'mecanico'
 
-        <DashboardClient />
-    </>
-   )
+    return (
+        <>
+            {user == 'mecanico' ? (
+                <DashboardMechanic />
+            ): (
+
+                <DashboardClient />
+            )}
+        </>
+    )
 }
