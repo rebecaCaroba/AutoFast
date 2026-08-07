@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import './style.scss';
-import { Sidebar } from '../components/Sidebar';
+import { Header } from '../components/Header';
 
 export function DefaultLayout() {
     return (
         <>
-            <Sidebar />
+            <Header />
             <div className="containerLayout">
                 <Outlet />
             </div>

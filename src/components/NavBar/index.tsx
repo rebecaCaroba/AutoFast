@@ -3,7 +3,7 @@ import './style.scss';
 
 export function NavBar() {
     return (
-        <nav>
+        <nav className='NavBar'>
             <Link to="/" className="nav-logo">
                 <span className="nav-logo-text">Auto<span>Fast</span></span>
             </Link>
