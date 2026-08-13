@@ -1,8 +1,10 @@
 import { CiFilter, CiClock2 } from "react-icons/ci";
 import { IoAddSharp } from "react-icons/io5";
 import { FaSortAmountDown } from "react-icons/fa";
+import { useState } from "react";
 
 import './style.scss'
+import { ModalCreateBudget } from "../../../components/ModalCreateBudget";
 
 interface CardItem {
     id: string
@@ -267,6 +269,12 @@ const columns: BoardColumn[] = [
 ]
 
 export function DashboardMechanic() {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+    function handleOpenModal() {
+        setIsModalOpen((state) => !state)
+    }
+
     return (
         <div className="dashboard-mechanic">
             <div className="dashboard-mechanic-shell">
@@ -285,12 +293,16 @@ export function DashboardMechanic() {
                             <FaSortAmountDown size={16} />
                             Ordenar
                         </button>
-                        <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
+                        <button type="button" onClick={handleOpenModal} className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
                             < IoAddSharp />
                             Novo orçamento
                         </button>
                     </div>
                 </header>
+
+                {isModalOpen && (
+                    <ModalCreateBudget handleOpenModal={handleOpenModal} />
+                )}
 
                 <div className="dashboard-mechanic-board" role="list" aria-label="Quadro de orçamentos do mecânico">
                     {columns.map((column) => (
@@ -302,8 +314,8 @@ export function DashboardMechanic() {
                                     <span className="dashboard-mechanic-column-count">{column.count}</span>
                                 </div>
 
-                                <button type="button" className="dashboard-mechanic-column-add" aria-label={`Adicionar novo item em ${column.title}`}>
-                                    +
+                                <button type="button" onClick={handleOpenModal} className="dashboard-mechanic-column-add" aria-label={`Adicionar novo item em ${column.title}`}>
+                                    < IoAddSharp />
                                 </button>
                             </div>
 

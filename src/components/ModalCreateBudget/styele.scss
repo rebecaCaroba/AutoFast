@@ -1,0 +1,95 @@
+@import '../../styles/config/variables';
+
+.modal-create-budget {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modal-create-budget-container {
+        background: $white;
+        width: 100%;
+        max-width: 760px;
+        border-radius: 20px;
+        box-shadow: 0 30px 70px -20px rgba(20, 22, 30, 0.35);
+        overflow: hidden;
+        margin: auto;
+        animation: modalIn .18s ease;
+    }
+
+    .modal-creat-budget-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #EAEBF0;
+    }
+
+    .modal-create-budget-body {
+        margin: 1rem;
+
+        details {
+            margin: 1rem 0;
+            border-bottom: 1px solid #EAEBF0;
+
+            &:nth-last-child(1) {
+                border: 0;
+            }
+            
+            summary {
+                margin: 1rem;
+
+            }
+        }
+
+
+    }
+
+    .modal-create-budget-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 16px 26px;
+        border-top: 1px solid #EAEBF0;
+        background: transparent;
+
+        .modal-creat-budget-footer-buttons {
+            display: inline-flex;
+            gap: 1rem;
+
+            .modal-creat-budget-btn-cancel {
+                
+                font-size: 13px;
+                font-weight: 700;
+                padding: 10px 18px;
+                border-radius: 10px;
+                border: 1px solid #EAEBF0;
+                background: transparent;
+                color: $gray-800;
+                cursor: pointer;
+            }
+
+            .modal-creat-budget-btn-submit {
+            
+                background-color: $blue-400;
+                font-size: 13px;
+                font-weight: 700;
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
+        }
+    }
+}
