@@ -7,10 +7,10 @@ import { GrPrevious } from "react-icons/gr";
 
 
 interface ModalCreateBudgetProps {
-    handleOpenModal: () => void
+    toggleModal: () => void
 }
 
-export function ModalCreateBudget({ handleOpenModal }: ModalCreateBudgetProps) {
+export function ModalCreateBudget({ toggleModal }: ModalCreateBudgetProps) {
     const [step, setStep] = useState<number>(1)
 
     function handleNextStep() {
@@ -30,7 +30,7 @@ export function ModalCreateBudget({ handleOpenModal }: ModalCreateBudgetProps) {
                     </div>
 
                     <div className="modal-creat-budget-header-buttons">
-                        <button className='modal-creat-budget-btn'>
+                        <button onClick={toggleModal} className='modal-creat-budget-btn'>
                             < IoMdClose size={18}/>
                         </button>
                     </div>
@@ -122,7 +122,7 @@ export function ModalCreateBudget({ handleOpenModal }: ModalCreateBudgetProps) {
 
                 <div className='modal-create-budget-footer'>
                     <div className="modal-creat-budget-footer-buttons">
-                        <button onClick={handleOpenModal} className='modal-creat-budget-btn-cancel'>
+                        <button onClick={toggleModal} className='modal-creat-budget-btn-cancel'>
                             Cancelar
                         </button>
 

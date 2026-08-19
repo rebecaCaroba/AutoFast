@@ -271,7 +271,7 @@ const columns: BoardColumn[] = [
 export function DashboardMechanic() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
-    function handleOpenModal() {
+    function toggleModal() {
         setIsModalOpen((state) => !state)
     }
 
@@ -293,7 +293,7 @@ export function DashboardMechanic() {
                             <FaSortAmountDown size={16} />
                             Ordenar
                         </button>
-                        <button type="button" onClick={handleOpenModal} className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
+                        <button type="button" onClick={toggleModal} className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
                             < IoAddSharp />
                             Novo orçamento
                         </button>
@@ -301,7 +301,7 @@ export function DashboardMechanic() {
                 </header>
 
                 {isModalOpen && (
-                    <ModalCreateBudget handleOpenModal={handleOpenModal} />
+                    <ModalCreateBudget toggleModal={toggleModal} />
                 )}
 
                 <div className="dashboard-mechanic-board" role="list" aria-label="Quadro de orçamentos do mecânico">
@@ -314,7 +314,7 @@ export function DashboardMechanic() {
                                     <span className="dashboard-mechanic-column-count">{column.count}</span>
                                 </div>
 
-                                <button type="button" onClick={handleOpenModal} className="dashboard-mechanic-column-add" aria-label={`Adicionar novo item em ${column.title}`}>
+                                <button type="button" onClick={toggleModal} className="dashboard-mechanic-column-add" aria-label={`Adicionar novo item em ${column.title}`}>
                                     < IoAddSharp />
                                 </button>
                             </div>
