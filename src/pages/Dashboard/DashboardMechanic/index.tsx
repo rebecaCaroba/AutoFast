@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import './style.scss'
 import { ModalCreateBudget } from "../../../components/ModalCreateBudget";
+import { ModalBudget } from "../../../components/ModalBudget";
 
 interface CardItem {
     id: string
@@ -270,6 +271,11 @@ const columns: BoardColumn[] = [
 
 export function DashboardMechanic() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    const [isModalBudgetOpen, setIsModalBudgetOpen] = useState<boolean>(false)
+
+    function toggleModalBudget() {
+        setIsModalBudgetOpen((state) => !state)
+    }
 
     function toggleModal() {
         setIsModalOpen((state) => !state)
@@ -286,7 +292,7 @@ export function DashboardMechanic() {
 
                     <div className="dashboard-mechanic-actions">
                         <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--ghost">
-                            < CiFilter size={24}/>
+                            < CiFilter size={24} />
                             Filtrar
                         </button>
                         <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--ghost">
@@ -302,6 +308,10 @@ export function DashboardMechanic() {
 
                 {isModalOpen && (
                     <ModalCreateBudget toggleModal={toggleModal} />
+                )}
+
+                {isModalBudgetOpen && (
+                    <ModalBudget toggleModalBudget={toggleModalBudget} />
                 )}
 
                 <div className="dashboard-mechanic-board" role="list" aria-label="Quadro de orçamentos do mecânico">
@@ -321,13 +331,13 @@ export function DashboardMechanic() {
 
                             <div className="dashboard-mechanic-cards">
                                 {column.cards.map((card) => (
-                                    <article key={card.id} className="dashboard-mechanic-card">
+                                    <article key={card.id} onClick={toggleModalBudget} className="dashboard-mechanic-card">
                                         <div className="dashboard-mechanic-card-top">
                                             <span className="dashboard-mechanic-badge" data-tone={card.tone}>
                                                 {card.description}
                                             </span>
 
-                                            <span className="dashboard-mechanic-time"><CiClock2/> {card.time}</span>
+                                            <span className="dashboard-mechanic-time"><CiClock2 /> {card.time}</span>
                                         </div>
 
                                         <div className="dashboard-mechanic-code">{card.id}</div>
@@ -341,11 +351,12 @@ export function DashboardMechanic() {
                                             </span>
                                         </div>
                                     </article>
+
                                 ))}
                             </div>
 
                             <button type="button" className="dashboard-mechanic-add-new">
-                                < IoAddSharp size={12}/> Novo orçamento
+                                < IoAddSharp size={12} /> Novo orçamento
                             </button>
                         </section>
                     ))}

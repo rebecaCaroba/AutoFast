@@ -1,0 +1,103 @@
+@import '../../styles/config/variables';
+
+.modal-budget {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modal-budget-container {
+        background: $white;
+        width: 100%;
+        max-width: 760px;
+        border-radius: 20px;
+        box-shadow: 0 30px 70px -20px rgba(20, 22, 30, 0.35);
+        overflow: hidden;
+        margin: auto;
+        animation: modalIn .18s ease;
+    }
+
+    .modal-budget-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #EAEBF0;
+
+        .modal-budget-btn {
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid #EAEBF0;
+            background: transparent;
+            color: $gray-800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+
+    .modal-budget-body {
+        margin: 1rem;
+
+        details {
+            margin: 1rem 0;
+
+
+            summary {
+                cursor: pointer;
+                font-weight: 500;
+                font-size: 14px;
+                color: $gray-800;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #EAEBF0;
+
+                &::-webkit-details-marker {
+                    display: none;
+                }
+            }
+        } 
+
+        .modal-budget-body-form {
+            .form-fiel {
+                display: flex;
+                flex-direction: column;
+                margin-top: 1rem;
+
+                input,
+                textarea,
+                select {
+                    border: 1px solid $gray-200;
+                    background: #F7F8FA;
+                    border-radius: 10px;
+
+                    padding: 0.75rem 1rem;
+                    font-size: 14px;
+                    outline: none;
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        border-color: #007bff;
+                        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+                    }
+                    &::placeholder {
+                        color: #999;
+                    }
+                }
+                textarea {
+                    resize: vertical;
+                }
+
+            }
+        }
+    }
+
+
+}
