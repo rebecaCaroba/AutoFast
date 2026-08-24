@@ -27,7 +27,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 1.5rem;
         border-bottom: 1px solid #EAEBF0;
 
         .modal-budget-btn {
@@ -45,25 +45,108 @@
     }
 
     .modal-budget-body {
-        margin: 1rem;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 1.5rem;
+
+        .modal-budget-body-img {
+            height: 250px;
+
+            img {
+                width: 50%;
+                height: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        .modal-budget-body-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 1rem;
+
+            .modal-budget-btn-approve {
+                background-color: $blue-400;
+                font-size: 13px;
+                font-weight: 700;
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+
+            }
+
+            .modal-budget-btn-reject {
+                background-color: $orange-500;
+                font-size: 13px;
+                font-weight: 700;
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+
+            }
+
+        }
+
+        .modal-budget-body-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 22px;
+
+            p {
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                align-items: center;
+                gap: 10px;
+
+                strong {
+                    color: $gray-500;
+                }
+            }
+        }
 
         details {
             margin: 1rem 0;
 
+            &::details-content {
+                margin-top: 1rem;
+            }
+
+            .summary-price {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: $gray-100;
+                border: 1px solid $gray-200;
+                border-radius: 12px;
+                padding: 14px 16px;
+
+                .price-right {
+                    text-align: right;
+                }
+            }
 
             summary {
                 cursor: pointer;
-                font-weight: 500;
-                font-size: 14px;
+                font-weight: 700;
+                font-size: 20px;
                 color: $gray-800;
                 padding: 0.5rem 0;
                 border-bottom: 1px solid #EAEBF0;
 
-                &::-webkit-details-marker {
-                    display: none;
-                }
             }
-        } 
+        }
 
         .modal-budget-body-form {
             .form-fiel {
@@ -87,10 +170,12 @@
                         border-color: #007bff;
                         box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
                     }
+
                     &::placeholder {
                         color: #999;
                     }
                 }
+
                 textarea {
                     resize: vertical;
                 }

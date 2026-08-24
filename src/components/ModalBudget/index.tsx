@@ -1,3 +1,4 @@
+import { IoMdClose } from "react-icons/io";
 import './style.scss'
 
 interface ModalBudgetProps {
@@ -10,11 +11,13 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
             <div className='modal-budget-container'>
                 <div className="modal-budget-header">
                     <div className="modal-budget-header-title">
-                        <h3>Orçamento</h3>
+                        <h3>ORC-124</h3>
+                        <p>Pendente</p>
                     </div>
                     <div className="modal-budget-header-buttons">
+
                         <button onClick={toggleModalBudget} className='modal-budget-btn'>
-                            Fechar
+                            <IoMdClose size={24} />
                         </button>
                     </div>
                 </div>
@@ -24,18 +27,31 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                         <p><strong>Telefone:</strong> (99) 99999-9999</p>
                         <p><strong>Veículo:</strong> Honda Civic</p>
                         <p><strong>Serviço:</strong> Troca de óleo</p>
-                        <p><strong>Status:</strong> Pendente</p>
+
+                    </div>
+                    <div className="modal-budget-body-img">
+                        <img src="https://picsum.photos/seed/picsum/200" alt="" />
                     </div>
 
                     <details>
                         <summary>Descrição</summary>
-                        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div className="summary-desc">
+                             <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
                     </details>
 
                     <details>
                         <summary>Preço e prazo</summary>
-                        <p><strong>Valor:</strong> R$ 150,00</p>
-                        <p><strong>Prazo:</strong> 4 dias uteis</p>
+                        <div className='summary-price'>
+                            <div className="price-left">
+                                <p>Valor do orçamento</p>
+                                <strong>R$432,00</strong>
+                            </div>
+                            <div className="price-right">
+                                <p>Prazo de entrega</p>
+                                <strong>5 dias utéis</strong>
+                            </div>
+                        </div>
                     </details>
                     <div className='modal-budget-body-actions'>
                         <button className='modal-budget-btn-approve'>Aprovar</button>

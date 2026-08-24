@@ -94,13 +94,15 @@
 
     .dashboard-mechanic-column {
         min-height: calc(100vh - 108px);
-        border: 1px solid $gray-200;
-        border-radius: 14px;
-        box-shadow: $shadow-sm;
         padding: 12px 10px 10px;
+        
+        background: $gray-50;
+        border: 1px solid $gray-200;
+        border-radius: 16px;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        min-height: 520px;
         position: relative;
 
         [data-accent='blue'] & .dashboard-mechanic-column-dot,
@@ -203,6 +205,7 @@
         flex-direction: column;
         gap: 8px;
         min-height: 140px;
+        cursor: pointer;
     }
 
     .dashboard-mechanic-card-top {
