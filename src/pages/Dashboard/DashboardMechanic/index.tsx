@@ -35,7 +35,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1042',
                 title: 'Alternador recond. - Gol G5',
-                client: 'Cliente: Marcos Vieira. Peça em estoque, aguardando montagem do orçamento.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 380,00',
                 time: '2h',
@@ -46,7 +46,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1043',
                 title: 'Motor de partida - Onix',
-                client: 'Cliente: Fernanda Reis. Solicitado pelo app, cliente aguarda retorno rápido.',
+                client: 'Matheus Cano',
                 description: 'Urgente',
                 value: 'R$ 295,00',
                 time: '40min',
@@ -57,7 +57,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1044',
                 title: 'Compressor A/C - HB20',
-                client: 'Cliente: Diego Amaral. Peça recondicionada nível B, revisar disponibilidade.',
+                client: 'Matheus Cano',
                 description: 'Simples',
                 value: 'R$ 610,00',
                 time: '5h',
@@ -68,7 +68,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1045',
                 title: 'Caixa de direção - Corolla',
-                client: 'Cliente: Renata Souza. Confirmar código da peça com o fornecedor.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 890,00',
                 time: '1 dia',
@@ -86,7 +86,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1031',
                 title: 'Turbina - Hilux 3.0',
-                client: 'Cliente: Paulo Nogueira. Mecânico validando estado da peça recondicionada.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 1.450,00',
                 time: '3h',
@@ -97,7 +97,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1032',
                 title: 'Bomba d\'água - Fiesta',
-                client: 'Cliente: Luana Prado. Checando compatibilidade com o ano do veículo.',
+                client: 'Matheus Cano',
                 description: 'Urgente',
                 value: 'R$ 210,00',
                 time: '25min',
@@ -108,7 +108,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1033',
                 title: 'Radiador - Civic',
-                client: 'Cliente: Igor Batista. Aguardando avaliação técnica da oficina parceira.',
+                client: 'Matheus Cano',
                 description: 'Simples',
                 value: 'R$ 460,00',
                 time: '6h',
@@ -126,7 +126,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1020',
                 title: 'Cabeçote - Uno 1.0',
-                client: 'Cliente: Bianca Ferraz. Orçamento enviado, aguardando aprovação do cliente.',
+                client: 'Matheus Cano',
                 description: 'Aguardando',
                 value: 'R$ 1.120,00',
                 time: '1 dia',
@@ -137,7 +137,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1021',
                 title: 'Injeção eletrônica - Kicks',
-                client: 'Cliente: Thiago Melo. Enviado por WhatsApp, sem retorno até o momento.',
+                client: 'Matheus Cano',
                 description: 'Aguardando',
                 value: 'R$ 980,00',
                 time: '2 dias',
@@ -148,7 +148,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1022',
                 title: 'Câmbio automático - Cruze',
-                client: 'Cliente: Aline Duarte. Cliente pediu prazo para decidir sobre a peça.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 3.200,00',
                 time: '8h',
@@ -166,7 +166,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1018',
                 title: 'Suspensão dianteira - Argo',
-                client: 'Cliente: Rodrigo Prado. Cliente pediu revisão de valor antes de aprovar.',
+                client: 'Matheus Cano',
                 description: 'Urgente',
                 value: 'R$ 540,00',
                 time: '1h',
@@ -177,7 +177,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1011',
                 title: 'Farol de LED - Compass',
-                client: 'Cliente: Camila Rocha. Trocar peça sugerida por item de linha superior.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 720,00',
                 time: '4h',
@@ -195,7 +195,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-0998',
                 title: 'Amortecedor traseiro - Sandero',
-                client: 'Cliente: Eduardo Farias. Peça já instalada, oficina em fase de testes.',
+                client: 'Matheus Cano',
                 description: 'Simples',
                 value: 'R$ 410,00',
                 time: '3h',
@@ -206,7 +206,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-0999',
                 title: 'Bomba de óleo - S10',
-                client: 'Cliente: Vanessa Lima. Montagem em andamento no box 5.',
+                client: 'Matheus Cano',
                 description: 'Padrão',
                 value: 'R$ 630,00',
                 time: '1 dia',
@@ -217,7 +217,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-1000',
                 title: 'Embreagem - Strada',
-                client: 'Cliente: Gustavo Nunes. Cliente aguardando na oficina, prioridade alta.',
+                client: 'Matheus Cano',
                 description: 'Urgente',
                 value: 'R$ 750,00',
                 time: '2h',
@@ -235,7 +235,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-0972',
                 title: 'Alternador recond. - Fox',
-                client: 'Cliente: Patricia Gomes. Serviço entregue e orçamento pago.',
+                client: 'Matheus Cano',
                 description: 'Concluído',
                 value: 'R$ 350,00',
                 time: '07 dias',
@@ -246,7 +246,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-0965',
                 title: 'Radiador - Ranger',
-                client: 'Cliente: Henrique Costa. Peça recondicionada instalada com garantia.',
+                client: 'Matheus Cano',
                 description: 'Concluído',
                 value: 'R$ 580,00',
                 time: '12 dias',
@@ -257,7 +257,7 @@ const columns: BoardColumn[] = [
             {
                 id: '#ORC-0951',
                 title: 'Motor de partida - Voyage',
-                client: 'Cliente: Sofia Martins. Retirada realizada, avaliação 5 estrelas.',
+                client: 'Matheus Cano',
                 description: 'Concluído',
                 value: 'R$ 270,00',
                 time: '20 dias',
@@ -341,14 +341,12 @@ export function DashboardMechanic() {
                                         </div>
 
                                         <div className="dashboard-mechanic-code">{card.id}</div>
-                                        <h3 className="dashboard-mechanic-card-title">{card.title}</h3>
-                                        <p className="dashboard-mechanic-card-text">{card.client}</p>
+                                        <h3 className="dashboard-mechanic-card-title">{card.client}</h3>
+                                        <p className="dashboard-mechanic-card-text">{card.title}</p>
 
                                         <div className="dashboard-mechanic-card-footer">
                                             <div className="dashboard-mechanic-price">{card.value}</div>
-                                            <span className="dashboard-mechanic-avatar" data-tone={card.tone}>
-                                                {card.initials}
-                                            </span>
+                                           
                                         </div>
                                     </article>
 
