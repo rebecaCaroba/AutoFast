@@ -5,6 +5,8 @@ interface ModalBudgetProps {
     toggleModalBudget: () => void
 }
 
+const budgetStatus = 'new'
+
 export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
     return (
         <div className="modal-budget">
@@ -15,9 +17,8 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                         <p>Pendente</p>
                     </div>
                     <div className="modal-budget-header-buttons">
-
-                        <button onClick={toggleModalBudget} className='modal-budget-btn'>
-                            <IoMdClose size={24} />
+                        <button type="button" onClick={toggleModalBudget} className='modal-budget-btn-close' aria-label="Fechar orçamento">
+                            <IoMdClose size={17} />
                         </button>
                     </div>
                 </div>
@@ -26,11 +27,10 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                         <p><strong>Cliente:</strong> João Vitor</p>
                         <p><strong>Telefone:</strong> (99) 99999-9999</p>
                         <p><strong>Veículo:</strong> Honda Civic</p>
-                        <p><strong>Serviço:</strong> Troca de óleo</p>
-
+                        <p><strong>Peça:</strong> Eixo Dianteiro</p>
                     </div>
                     <div className="modal-budget-body-img">
-                        <img src="https://picsum.photos/seed/picsum/200" alt="" />
+                        <img src="https://picsum.photos/seed/picsum/200" alt="Foto da peça solicitada" />
                     </div>
 
                     <details>
@@ -53,11 +53,15 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                             </div>
                         </div>
                     </details>
-                    <div className='modal-budget-body-actions'>
-                        <button className='modal-budget-btn-approve'>Aprovar</button>
-                        <button className='modal-budget-btn-reject'>Rejeitar</button>
-                    </div>
                 </div>
+                    {budgetStatus === 'new' ? (
+                        <div className='modal-budget-footer'>
+                            <button type="button"  className='modal-budget-btn-reject'>Recusar</button>
+                            <button type="button" className='modal-budget-btn-approve'>Aprovar orçamento</button>
+                        </div>
+                    ) : (
+                       ''
+                    )}
             </div>
         </div>
     )

@@ -1,8 +1,10 @@
-@import '../../styles/config/variables';
+@use '../../styles/config/variables';
+@use "../../styles/config/colors";
+
 
 .hero {
   min-height: 100vh;
-  background: $blue-900;
+  background: colors.$blue-900;
   position: relative;
   display: flex;
   align-items: center;
@@ -63,7 +65,7 @@
   gap: 8px;
   background: rgba(37,99,235,0.15);
   border: 1px solid rgba(37,99,235,0.35);
-  color: $blue-300;
+  color: colors.$blue-300;
   padding: 6px 14px;
   border-radius: 100px;
   font-size: 0.8rem;
@@ -76,7 +78,7 @@
 .hero-badge-dot {
   width: 6px;
   height: 6px;
-  background: $blue-400;
+  background: colors.$blue-400;
   border-radius: 50%;
   animation: pulse-dot 2s infinite;
 }
@@ -89,14 +91,14 @@
 .hero-title {
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 900;
-  color: $white;
+  color: colors.$white;
   line-height: 1.1;
   letter-spacing: -1.5px;
   margin-bottom: 24px;
 }
 
 .hero-title-accent {
-  background: linear-gradient(135deg, $orange-400, $orange-500);
+  background: linear-gradient(135deg, colors.$orange-400, colors.$orange-500);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -119,8 +121,8 @@
 }
 
 .btn-hero-primary {
-  background: linear-gradient(135deg, $orange-500, #ea6c00);
-  color: $white;
+  background: linear-gradient(135deg, colors.$orange-500, #ea6c00);
+  color: colors.$white;
   padding: 16px 32px;
   border-radius: var(--radius-lg);
   border: none;
@@ -144,7 +146,7 @@
 
 .btn-hero-secondary {
   background: rgba(255,255,255,0.08);
-  color: $white;
+  color: colors.$white;
   padding: 16px 32px;
   border-radius: var(--radius-lg);
   border: 1.5px solid rgba(255,255,255,0.15);
@@ -177,7 +179,7 @@
 .hero-stat-number {
   font-size: 1.75rem;
   font-weight: 800;
-  color: $white;
+  color: colors.$white;
   letter-spacing: -1px;
 }
 
@@ -231,7 +233,7 @@
 .mockup-icon {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, $blue-500, $blue-400);
+  background: linear-gradient(135deg, colors.$blue-500, colors.$blue-400);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -240,7 +242,7 @@
 }
 
 .mockup-title {
-  color: $white;
+  color: colors.$white;
   font-weight: 700;
   font-size: 0.95rem;
 }
@@ -302,7 +304,7 @@
 }
 
 .mockup-orc-title {
-  color: $white;
+  color: colors.$white;
   font-size: 0.82rem;
   font-weight: 600;
   margin-bottom: 2px;
@@ -353,7 +355,7 @@
 }
 
 .mockup-stat-number {
-  color: $white;
+  color: colors.$white;
   font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -370,7 +372,7 @@
   background: rgba(255,255,255,0.95);
   border-radius: 8px;
   padding: 12px 16px;
-  box-shadow: $shadow-lg;
+  box-shadow: colors.$shadow-lg;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -397,7 +399,7 @@
 .float-card-icon {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, $orange-500, $orange-400);
+  background: linear-gradient(135deg, colors.$orange-500, colors.$orange-400);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -409,13 +411,13 @@
 .float-card-title {
   font-size: 0.78rem;
   font-weight: 700;
-  color: $gray-800;
+  color: colors.$gray-800;
   letter-spacing: -0.2px;
 }
 
 .float-card-sub {
   font-size: 0.7rem;
-  color: $gray-500;
+  color: colors.$gray-500;
   margin-top: 1px;
 }
 
@@ -433,7 +435,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: $orange-400;
+  color: colors.$orange-400;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -446,30 +448,30 @@
   display: block;
   width: 20px;
   height: 2px;
-  background: $orange-500;
+  background: colors.$orange-500;
   border-radius: 2px;
 }
 
 .section-title {
   font-size: clamp(1.9rem, 3vw, 2.8rem);
   font-weight: 800;
-  color: $gray-900;
+  color: colors.$gray-900;
   letter-spacing: -1px;
   line-height: 1.15;
   margin-bottom: 16px;
 }
 
-.section-title .accent { color: $blue-600; }
+.section-title .accent { color: colors.$blue-600; }
 
 .section-desc {
   font-size: 1.05rem;
-  color: $gray-500;
+  color: colors.$gray-500;
   line-height: 1.8;
   max-width: 540px;
 }
 
 .how-section {
-  background: $gray-50;
+  background: colors.$gray-50;
 }
 
 .how-header {
@@ -499,16 +501,16 @@
   gap: 20px;
   align-items: flex-start;
   padding: 24px;
-  background: $white;
+  background: colors.$white;
   border-radius: 12px;
-  border: 1px solid $gray-200;
-  box-shadow: $shadow-sm;
+  border: 1px solid colors.$gray-200;
+  box-shadow: colors.$shadow-sm;
   transition: all 0.3s;
   cursor: default;
 }
 
 .how-step:hover {
-  border-color: $blue-300;
+  border-color: colors.$blue-300;
   box-shadow: 0 8px 32px rgba(37,99,235,0.1);
   transform: translateX(4px);
 }
@@ -516,16 +518,16 @@
 .how-step-number {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, $blue-600, $blue-500);
+  background: linear-gradient(135deg, colors.$blue-600, colors.$blue-500);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
   font-weight: 800;
-  color: $white;
+  color: colors.$white;
   flex-shrink: 0;
-  box-shadow: $shadow-blue;
+  box-shadow: colors.$shadow-blue;
 }
 
 .how-step-content {}
@@ -533,22 +535,22 @@
 .how-step-title {
   font-size: 1rem;
   font-weight: 700;
-  color: $gray-800;
+  color: colors.$gray-800;
   margin-bottom: 6px;
   letter-spacing: -0.3px;
 }
 
 .how-step-desc {
   font-size: 0.875rem;
-  color: $gray-500;
+  color: colors.$gray-500;
   line-height: 1.7;
 }
 
 .how-visual {
-  background: $blue-900;
+  background: colors.$blue-900;
   border-radius: 24px;
   padding: 32px;
-  box-shadow: $shadow-lg;
+  box-shadow: colors.$shadow-lg;
   position: relative;
   overflow: hidden;
 }
@@ -591,13 +593,13 @@
 }
 
 .dot-done { background: #4ade80; box-shadow: 0 0 8px rgba(74,222,128,0.5); }
-.dot-active { background: $orange-400; box-shadow: 0 0 8px rgba(249,115,22,0.5); animation: pulse-dot 1.5s infinite; }
+.dot-active { background: colors.$orange-400; box-shadow: 0 0 8px rgba(249,115,22,0.5); animation: pulse-dot 1.5s infinite; }
 .dot-pending { background: rgba(255,255,255,0.2); }
 
 .how-status-text {
   font-size: 0.82rem;
   font-weight: 600;
-  color: $white;
+  color: colors.$white;
   flex: 1;
 }
 
@@ -626,8 +628,8 @@
 }
 
 .feature-card {
-  background: $white;
-  border: 1px solid $gray-200;
+  background: colors.$white;
+  border: 1px solid colors.$gray-200;
   border-radius: 16px;
   padding: 32px 28px;
   transition: all 0.3s;
@@ -640,31 +642,31 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, $blue-500, $blue-400);
+  background: linear-gradient(90deg, colors.$blue-500, colors.$blue-400);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .feature-card:hover {
-  border-color: $blue-300;
-  box-shadow: $shadow-md, 0 0 0 1px $blue-100;
+  border-color: colors.$blue-300;
+  box-shadow: colors.$shadow-md, 0 0 0 1px colors.$blue-100;
   transform: translateY(-4px);
 }
 
 .feature-card:hover::before { opacity: 1; }
 
 .feature-card.highlight {
-  background: linear-gradient(160deg, $blue-900 0%, $blue-800 100%);
-  border-color: $blue-700;
+  background: linear-gradient(160deg, colors.$blue-900 0%, colors.$blue-800 100%);
+  border-color: colors.$blue-700;
 }
 
-.feature-card.highlight .feature-title { color: $white; }
+.feature-card.highlight .feature-title { color: colors.$white; }
 .feature-card.highlight .feature-desc { color: rgba(255,255,255,0.55); }
 
 .feature-icon {
   width: 52px;
   height: 52px;
-  background: linear-gradient(135deg, $blue-100, #eff6ff);
+  background: linear-gradient(135deg, colors.$blue-100, #eff6ff);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -680,14 +682,14 @@
 .feature-title {
   font-size: 1.05rem;
   font-weight: 700;
-  color: $gray-800;
+  color: colors.$gray-800;
   letter-spacing: -0.3px;
   margin-bottom: 10px;
 }
 
 .feature-desc {
   font-size: 0.875rem;
-  color: $gray-500;
+  color: colors.$gray-500;
   line-height: 1.75;
 }
 
@@ -703,18 +705,18 @@
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 100px;
-  background: $blue-100;
-  color: $blue-700;
+  background: colors.$blue-100;
+  color: colors.$blue-700;
 }
 
 .feature-card.highlight .feature-tag {
   background: rgba(255,255,255,0.1);
-  color: $blue-300;
+  color: colors.$blue-300;
 }
 
 /* ── ROLES ── */
 .roles-section {
-  background: $gray-50;
+  background: colors.$gray-50;
 }
 
 .roles-grid {
@@ -732,14 +734,14 @@
 }
 
 .role-card.mechanic {
-  background: linear-gradient(160deg, $blue-900, $blue-800);
-  border: 1px solid $blue-700;
+  background: linear-gradient(160deg, colors.$blue-900, colors.$blue-800);
+  border: 1px solid colors.$blue-700;
 }
 
 .role-card.client {
-  background: $white;
-  border: 1px solid $gray-200;
-  box-shadow: $shadow-md;
+  background: colors.$white;
+  border: 1px solid colors.$gray-200;
+  box-shadow: colors.$shadow-md;
 }
 
 .role-header {
@@ -764,7 +766,7 @@
 }
 
 .role-avatar.client-av {
-  background: $orange-100;
+  background: colors.$orange-100;
 }
 
 .role-name {
@@ -773,8 +775,8 @@
   letter-spacing: -0.5px;
 }
 
-.role-card.mechanic .role-name { color: $white; }
-.role-card.client .role-name { color: $gray-800; }
+.role-card.mechanic .role-name { color: colors.$white; }
+.role-card.client .role-name { color: colors.$gray-800; }
 
 .role-tagline {
   font-size: 0.83rem;
@@ -782,7 +784,7 @@
 }
 
 .role-card.mechanic .role-tagline { color: rgba(255,255,255,0.5); }
-.role-card.client .role-tagline { color: $gray-400; }
+.role-card.client .role-tagline { color: colors.$gray-400; }
 
 .role-features {
   display: flex;
@@ -799,7 +801,7 @@
 }
 
 .role-card.mechanic .role-feature { color: rgba(255,255,255,0.8); }
-.role-card.client .role-feature { color: $gray-600; }
+.role-card.client .role-feature { color: colors.$gray-600; }
 
 .role-feature-icon {
   width: 28px;
@@ -832,10 +834,10 @@
 }
 
 .role-cta.mechanic-cta {
-  background: linear-gradient(135deg, $blue-500, $blue-400);
-  color: $white;
+  background: linear-gradient(135deg, colors.$blue-500, colors.$blue-400);
+  color: colors.$white;
   border: none;
-  box-shadow: $shadow-blue;
+  box-shadow: colors.$shadow-blue;
 }
 
 .role-cta.mechanic-cta:hover {
@@ -844,10 +846,10 @@
 }
 
 .role-cta.client-cta {
-  background: linear-gradient(135deg, $orange-500, $orange-400);
-  color: $white;
+  background: linear-gradient(135deg, colors.$orange-500, colors.$orange-400);
+  color: colors.$white;
   border: none;
-  box-shadow: $shadow-orange;
+  box-shadow: colors.$shadow-orange;
 }
 
 .role-cta.client-cta:hover {
@@ -872,16 +874,16 @@
 }
 
 .testimonial-card {
-  background: $white;
-  border: 1px solid $gray-200;
+  background: colors.$white;
+  border: 1px solid colors.$gray-200;
   border-radius: 16px;
   padding: 28px;
   transition: all 0.3s;
 }
 
 .testimonial-card:hover {
-  border-color: $blue-300;
-  box-shadow: $shadow-md;
+  border-color: colors.$blue-300;
+  box-shadow: colors.$shadow-md;
   transform: translateY(-3px);
 }
 
@@ -895,7 +897,7 @@
 
 .testimonial-text {
   font-size: 0.9rem;
-  color: $gray-600;
+  color: colors.$gray-600;
   line-height: 1.8;
   margin-bottom: 20px;
   font-style: italic;
@@ -906,7 +908,7 @@
   align-items: center;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid $gray-100;
+  border-top: 1px solid colors.$gray-100;
 }
 
 .testimonial-avatar {
@@ -918,30 +920,30 @@
   justify-content: center;
   font-size: 18px;
   font-weight: 700;
-  color: $white;
+  color: colors.$white;
   font-style: normal;
   flex-shrink: 0;
 }
 
-.av-blue { background: linear-gradient(135deg, $blue-500, $blue-400); }
-.av-orange { background: linear-gradient(135deg, $orange-500, $orange-400); }
+.av-blue { background: linear-gradient(135deg, colors.$blue-500, colors.$blue-400); }
+.av-orange { background: linear-gradient(135deg, colors.$orange-500, colors.$orange-400); }
 .av-teal { background: linear-gradient(135deg, #0891b2, #06b6d4); }
 
 .testimonial-name {
   font-size: 0.875rem;
   font-weight: 700;
-  color: $gray-800;
+  color: colors.$gray-800;
 }
 
 .testimonial-role {
   font-size: 0.78rem;
-  color: $gray-400;
+  color: colors.$gray-400;
   margin-top: 1px;
 }
 
 /* ── CTA SECTION ── */
 .cta-section {
-  background: linear-gradient(160deg, $blue-900 0%, $blue-800 100%);
+  background: linear-gradient(160deg, colors.$blue-900 0%, colors.$blue-800 100%);
   position: relative;
   overflow: hidden;
 }
@@ -976,7 +978,7 @@
 .cta-title {
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 900;
-  color: $white;
+  color: colors.$white;
   letter-spacing: -1.5px;
   line-height: 1.1;
   margin-bottom: 20px;

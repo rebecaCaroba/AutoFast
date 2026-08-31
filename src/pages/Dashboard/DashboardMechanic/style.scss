@@ -1,8 +1,10 @@
-@import '../../../styles/config/variables';
+@use '../../../styles/config/variables';
+@use "../../../styles/config/colors";
+
 
 .dashboard-mechanic {
     min-height: 100vh;
-    color: $gray-800;
+    color: colors.$gray-800;
     padding: 16px;
 
     .dashboard-mechanic-shell {
@@ -23,13 +25,13 @@
         font-size: 18px;
         font-weight: 700;
         letter-spacing: -0.02em;
-        color: $gray-900;
+        color: colors.$gray-900;
         margin-bottom: 2px;
     }
 
     .dashboard-mechanic-subtitle {
         font-size: 12px;
-        color: $gray-500;
+        color: colors.$gray-500;
     }
 
     .dashboard-mechanic-actions {
@@ -47,9 +49,9 @@
         height: 34px;
         padding: 1rem;
         border-radius: 10px;
-        border: 1px solid $gray-200;
-        background: $white;
-        color: $gray-700;
+        border: 1px solid colors.$gray-200;
+        background: colors.$white;
+        color: colors.$gray-700;
         font-size: 13px;
         font-weight: 600;
         cursor: pointer;
@@ -57,14 +59,14 @@
     }
 
     .dashboard-mechanic-action-button--ghost {
-        background: rgba($white, 0.96);
+        background: rgba(colors.$white, 0.96);
     }
 
     .dashboard-mechanic-action-button--primary {
-        border-color: $orange-500;
-        background: linear-gradient(180deg, $orange-400 0%, $orange-500 100%);
-        color: $white;
-        box-shadow: $shadow-orange;
+        border-color: colors.$orange-500;
+        background: linear-gradient(180deg, colors.$orange-400 0%, colors.$orange-500 100%);
+        color: colors.$white;
+        box-shadow: colors.$shadow-orange;
     }
 
     .dashboard-mechanic-board {
@@ -82,12 +84,12 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background: $gray-300;
+            background: colors.$gray-300;
             border-radius: 8px;
         }
 
         &::-webkit-scrollbar-track {
-            background: $gray-100;
+            background: colors.$gray-100;
             border-radius: 8px;
         }
     }
@@ -96,8 +98,8 @@
         min-height: calc(100vh - 108px);
         padding: 12px 10px 10px;
         
-        background: $gray-50;
-        border: 1px solid $gray-200;
+        background: colors.$gray-50;
+        border: 1px solid colors.$gray-200;
         border-radius: 16px;
         display: flex;
         flex-direction: column;
@@ -107,7 +109,7 @@
 
         [data-accent='blue'] & .dashboard-mechanic-column-dot,
         &[data-accent='blue'] .dashboard-mechanic-column-dot {
-            background: $blue-500;
+            background: colors.$blue-500;
         }
 
         &[data-accent='purple'] .dashboard-mechanic-column-dot {
@@ -119,15 +121,15 @@
         }
 
         &[data-accent='orange'] .dashboard-mechanic-column-dot {
-            background: $orange-400;
+            background: colors.$orange-400;
         }
 
         &[data-accent='green'] .dashboard-mechanic-column-dot {
-            background: $green-500;
+            background: colors.$green-500;
         }
 
         &[data-accent='gray'] .dashboard-mechanic-column-dot {
-            background: $gray-400;
+            background: colors.$gray-400;
         }
     }
 
@@ -156,7 +158,7 @@
     .dashboard-mechanic-column-title {
         font-size: 14px;
         font-weight: 700;
-        color: $gray-900;
+        color: colors.$gray-900;
         white-space: nowrap;
     }
 
@@ -165,9 +167,9 @@
         min-width: 18px;
         padding: 0 6px;
         border-radius: 999px;
-        border: 1px solid $gray-300;
-        background: $white;
-        color: $gray-500;
+        border: 1px solid colors.$gray-300;
+        background: colors.$white;
+        color: colors.$gray-500;
         font-size: 11px;
         font-weight: 700;
         display: inline-flex;
@@ -179,9 +181,9 @@
         width: 24px;
         height: 24px;
         border-radius: 8px;
-        border: 1px solid $gray-200;
-        background: $white;
-        color: $gray-400;
+        border: 1px solid colors.$gray-200;
+        background: colors.$white;
+        color: colors.$gray-400;
         font-size: 16px;
         line-height: 1;
         cursor: pointer;
@@ -196,8 +198,8 @@
     }
 
     .dashboard-mechanic-card {
-        background: $white;
-        border: 1px solid $gray-200;
+        background: colors.$white;
+        border: 1px solid colors.$gray-200;
         border-radius: 12px;
         box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
         padding: 10px 10px 11px;
@@ -225,24 +227,24 @@
         font-weight: 700;
 
         &[data-tone='blue'] {
-            background: $blue-100;
-            color: $blue-600;
+            background: colors.$blue-100;
+            color: colors.$blue-600;
         }
 
         &[data-tone='orange'] {
-            background: $orange-100;
-            color: $orange-500;
+            background: colors.$orange-100;
+            color: colors.$orange-500;
         }
 
         &[data-tone='green'] {
-            background: $green-100;
-            color: $green-500;
+            background: colors.$green-100;
+            color: colors.$green-500;
         }
     }
 
     .dashboard-mechanic-time {
         font-size: 11px;
-        color: $gray-500;
+        color: colors.$gray-500;
         display: inline-flex;
         align-items: center;
         gap: 4px;
@@ -252,7 +254,7 @@
     .dashboard-mechanic-code {
         font-size: 10px;
         font-weight: 700;
-        color: $gray-500;
+        color: colors.$gray-500;
         letter-spacing: 0.04em;
         text-transform: uppercase;
     }
@@ -262,12 +264,12 @@
         line-height: 1.2;
         font-weight: 700;
         letter-spacing: -0.02em;
-        color: $gray-900;
+        color: colors.$gray-900;
     }
 
     .dashboard-mechanic-card-text {
         font-size: 12px;
-        color: $gray-500;
+        color: colors.$gray-500;
         line-height: 1.45;
     }
 
@@ -283,7 +285,7 @@
     .dashboard-mechanic-price {
         font-size: 14px;
         letter-spacing: 0.02em;
-        color: $gray-900;
+        color: colors.$gray-900;
     }
 
     .dashboard-mechanic-avatar {
@@ -295,18 +297,18 @@
         justify-content: center;
         font-size: 9px;
         font-weight: 800;
-        color: $white;
+        color: colors.$white;
 
         &[data-tone='blue'] {
-            background: $blue-500;
+            background: colors.$blue-500;
         }
 
         &[data-tone='orange'] {
-            background: $orange-500;
+            background: colors.$orange-500;
         }
 
         &[data-tone='green'] {
-            background: $green-500;
+            background: colors.$green-500;
         }
     }
 
@@ -315,7 +317,7 @@
         gap: 0.5rem;
         border: 0;
         background: transparent;
-        color: $gray-500;
+        color: colors.$gray-500;
         text-align: left;
         font-size: 12px;
         font-weight: 600;

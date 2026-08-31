@@ -1,9 +1,11 @@
-@import '../styles/config/variables';
+@use '../styles/config/variables';
+@use "../styles/config/colors";
+
 
 .containerLayout {
     margin: 1.5rem 1rem 0 1rem;
 }
 
 body {
-    background-color: $gray-50 !important; 
+    background-color: colors.$gray-50 !important; 
 }
