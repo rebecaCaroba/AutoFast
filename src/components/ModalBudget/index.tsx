@@ -1,5 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import './style.scss'
+import { useState } from "react";
 
 interface ModalBudgetProps {
     toggleModalBudget: () => void
@@ -7,23 +8,40 @@ interface ModalBudgetProps {
 
 const budgetStatus = 'new'
 
-
 export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
+
+    const [isActiveNav, setIsActiveNav] = useState<'bud' | 'chat'>('bud')
+
     return (
         <div className="modal-budget">
             <div className='modal-budget-container'>
                 <div className="modal-budget-header">
-                    <div className="modal-budget-header-title">
-                        <h3>ORC-124</h3>
-                        <span className={`modal-budget-status modal-budget-status`}>
-                            Novo
-                        </span>
+                    <div className="modal-budget-header-content">
+                        <div className="modal-budget-header-title">
+                            <h3>ORC-124</h3>
+                            <span className={`modal-budget-status modal-budget-status`}>
+                                Novo
+                            </span>
+                        </div>
+                        <div className="modal-budget-header-buttons">
+                            <button type="button" onClick={toggleModalBudget} className='modal-budget-btn-close' aria-label="Fechar orçamento">
+                                <IoMdClose size={17} />
+                            </button>
+                        </div>
                     </div>
-                    <div className="modal-budget-header-buttons">
-                        <button type="button" onClick={toggleModalBudget} className='modal-budget-btn-close' aria-label="Fechar orçamento">
-                            <IoMdClose size={17} />
-                        </button>
-                    </div>
+
+                    <nav className="modal-budget-header-nav">
+                        <li 
+                        onClick={() => setIsActiveNav('bud')} 
+                        className={`${isActiveNav ==  'bud' ? 'active' : ''}`}>
+                            Orçamento
+                        </li>
+                        <li 
+                        onClick={() => setIsActiveNav('chat')}
+                        className={`${isActiveNav == 'chat' ? 'active' : ''}`}>
+                            Chat
+                        </li>
+                    </nav>
                 </div>
                 <div className='modal-budget-body'>
                     <div className='modal-budget-body-info'>
@@ -39,7 +57,7 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                     <details>
                         <summary>Descrição do problema</summary>
                         <div className="summary-desc">
-                             <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </details>
 
@@ -57,14 +75,14 @@ export function ModalBudget({ toggleModalBudget }: ModalBudgetProps) {
                         </div>
                     </details>
                 </div>
-                    {budgetStatus === 'new' ? (
-                        <div className='modal-budget-footer'>
-                            <button type="button"  className='modal-budget-btn-reject'>Recusar</button>
-                            <button type="button" className='modal-budget-btn-approve'>Aprovar orçamento</button>
-                        </div>
-                    ) : (
-                       ''
-                    )}
+                {budgetStatus === 'new' ? (
+                    <div className='modal-budget-footer'>
+                        <button type="button" className='modal-budget-btn-reject'>Recusar</button>
+                        <button type="button" className='modal-budget-btn-approve'>Aprovar orçamento</button>
+                    </div>
+                ) : (
+                    ''
+                )}
             </div>
         </div>
     )
