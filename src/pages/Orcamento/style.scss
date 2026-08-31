@@ -1,4 +1,6 @@
-@import '../../styles/config/variables';
+@use '../../styles/config/variables';
+@use "../../styles/config/colors";
+
 
 .hiden {
 	display: none;
@@ -6,9 +8,9 @@
 
 .card-surface {
 	background: rgba(255, 255, 255, 0.92);
-	border: 1px solid $gray-200;
+	border: 1px solid colors.$gray-200;
 	border-radius: 20px;
-	box-shadow: $shadow-sm;
+	box-shadow: colors.$shadow-sm;
 }
 
 .budget-header {
@@ -20,7 +22,7 @@
 
     .btn-chat {
         padding: 0.75rem 1.5rem;
-        background-color: $blue-500;
+        background-color: colors.$blue-500;
         color: white;
         border: none;
         border-radius: 6px;
@@ -32,11 +34,11 @@
         text-decoration: none;
 
         &:hover {
-            background-color: $blue-600;
+            background-color: colors.$blue-600;
         }
 
         &:active {
-            background-color: $blue-700;
+            background-color: colors.$blue-700;
         }
     }
 }
@@ -45,11 +47,11 @@
 	margin: 10px 0 6px;
 	font-size: clamp(1.45rem, 2vw, 2rem);
 	line-height: 1.2;
-	color: $gray-900;
+	color: colors.$gray-900;
 }
 
 .budget-header-top p {
-	color: $gray-400;
+	color: colors.$gray-400;
 	font-size: 0.95rem;
 }
 
@@ -63,7 +65,7 @@
 .budget-id {
     font-size: .75rem;
     font-weight: 700;
-    color: $gray-400;
+    color: colors.$gray-400;
     letter-spacing: .5px;
 }
 
@@ -78,8 +80,8 @@
 }
 
 .budget-status-active {
-	background: $blue-100;
-	color: $blue-600;
+	background: colors.$blue-100;
+	color: colors.$blue-600;
 }
 
 .budget-grid {
@@ -99,13 +101,13 @@
 
 	h2 {
 		margin: 0 0 4px;
-		color: $gray-900;
+		color: colors.$gray-900;
 		font-size: 1rem;
 	}
 
 	p {
 		margin: 0;
-		color: $gray-400;
+		color: colors.$gray-400;
 		font-size: 0.83rem;
 	}
 }
@@ -121,8 +123,8 @@
 	font-size: 1rem;
 }
 
-.section-icon-blue { background: $blue-50; }
-.section-icon-orange { background: $orange-100; }
+.section-icon-blue { background: colors.$blue-50; }
+.section-icon-orange { background: colors.$orange-100; }
 .section-icon-cream { background: #fff7e8; }
 .section-icon-yellow { background: #fff4d6; }
 
@@ -138,7 +140,7 @@
 	top: 16px;
 	bottom: 16px;
 	width: 2px;
-	background: $gray-200;
+	background: colors.$gray-200;
 }
 
 .timeline-item {
@@ -158,23 +160,23 @@
 	justify-content: center;
 	font-size: 0.85rem;
 	font-weight: 700;
-	background: $blue-500;
-	color: $white;
-	border: 2px solid $white;
-	box-shadow: 0 0 0 3px $blue-100;
+	background: colors.$blue-500;
+	color: colors.$white;
+	border: 2px solid colors.$white;
+	box-shadow: 0 0 0 3px colors.$blue-100;
 	z-index: 1;
 }
 
 .timeline-marker-active {
-	background: $white;
-	color: $blue-500;
-	border-color: $blue-500;
+	background: colors.$white;
+	color: colors.$blue-500;
+	border-color: colors.$blue-500;
 }
 
 .timeline-marker-muted {
-	background: $white;
-	color: $gray-400;
-	border-color: $gray-200;
+	background: colors.$white;
+	color: colors.$gray-400;
+	border-color: colors.$gray-200;
 	box-shadow: none;
 }
 
@@ -183,19 +185,19 @@
 
 	strong {
 		display: block;
-		color: $gray-800;
+		color: colors.$gray-800;
 		font-size: 0.95rem;
 		margin-bottom: 3px;
 	}
 
 	p {
-		color: $gray-400;
+		color: colors.$gray-400;
 		font-size: 0.86rem;
 		margin-bottom: 4px;
 	}
 
 	span {
-		color: $gray-300;
+		color: colors.$gray-300;
 		font-size: 0.76rem;
 		font-weight: 600;
 		letter-spacing: 0.2px;
@@ -207,24 +209,24 @@
 }
 
 .timeline-active .timeline-content strong {
-	color: $blue-500;
+	color: colors.$blue-500;
 }
 
 .timeline-active .timeline-content p {
-	color: $gray-500;
+	color: colors.$gray-500;
 }
 
 .timeline-muted .timeline-content strong {
-	color: $gray-500;
+	color: colors.$gray-500;
 }
 
 .mechanic-quote {
 	margin: 0 0 14px;
 	padding: 18px;
-	border: 1px solid $gray-200;
+	border: 1px solid colors.$gray-200;
 	border-radius: 16px;
-	background: linear-gradient(180deg, $gray-50, $white);
-	color: $gray-600;
+	background: linear-gradient(180deg, colors.$gray-50, colors.$white);
+	color: colors.$gray-600;
 	font-size: 0.94rem;
 	line-height: 1.7;
 	font-style: italic;
@@ -235,17 +237,17 @@
 	align-items: center;
 	gap: 12px;
 	padding: 0 4px 16px;
-	border-bottom: 1px solid $gray-200;
+	border-bottom: 1px solid colors.$gray-200;
 	margin-bottom: 16px;
 
 	strong {
 		display: block;
-		color: $gray-800;
+		color: colors.$gray-800;
 		font-size: 0.92rem;
 	}
 
 	span {
-		color: $gray-400;
+		color: colors.$gray-400;
 		font-size: 0.8rem;
 	}
 }
@@ -254,14 +256,14 @@
 	width: 34px;
 	height: 34px;
 	border-radius: 999px;
-	background: $blue-500;
-	color: $white;
+	background: colors.$blue-500;
+	color: colors.$white;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 0.78rem;
 	font-weight: 700;
-	box-shadow: $shadow-blue;
+	box-shadow: colors.$shadow-blue;
 	flex: 0 0 auto;
 }
 
@@ -270,7 +272,7 @@
 	gap: 10px;
 	padding-bottom: 14px;
 	margin-bottom: 14px;
-	border-bottom: 1px solid $gray-200;
+	border-bottom: 1px solid colors.$gray-200;
 }
 
 .budget-value-row {
@@ -280,24 +282,24 @@
 	gap: 16px;
 
 	span {
-		color: $gray-500;
+		color: colors.$gray-500;
 		font-size: 0.92rem;
 	}
 
 	strong {
-		color: $gray-800;
+		color: colors.$gray-800;
 		font-size: 0.94rem;
 	}
 }
 
 .budget-value-discount strong {
-	color: $green-500;
+	color: colors.$green-500;
 }
 
 .budget-total-row {
 	margin-top: 4px;
 	padding-top: 12px;
-	border-top: 1px solid $gray-200;
+	border-top: 1px solid colors.$gray-200;
 
 	span,
 	strong {
@@ -306,7 +308,7 @@
 	}
 
 	strong {
-		color: $blue-500;
+		color: colors.$blue-500;
 		font-size: 1.2rem;
 	}
 }
@@ -324,12 +326,12 @@
 	> div {
 		span {
 			display: block;
-			color: $gray-400;
+			color: colors.$gray-400;
 
 		}
 
 		strong {
-			color: $gray-800;
+			color: colors.$gray-800;
 			font-size: 0.94rem;
 		}
 	}
@@ -345,9 +347,9 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		border: 1px solid $gray-200;
-		background: $gray-50;
-		color: $gray-500;
+		border: 1px solid colors.$gray-200;
+		background: colors.$gray-50;
+		color: colors.$gray-500;
 		border-radius: 10px;
 		padding: 0.28rem 0.6rem;
 		font-size: 0.78rem;
@@ -358,13 +360,13 @@
 .decision-box {
 	padding: 14px;
 	border-radius: 16px;
-	border: 1px solid $gray-200;
-	background: linear-gradient(180deg, $gray-50 0%, $white 100%);
+	border: 1px solid colors.$gray-200;
+	background: linear-gradient(180deg, colors.$gray-50 0%, colors.$white 100%);
 
 	strong {
 		display: block;
 		margin-bottom: 12px;
-		color: $gray-600;
+		color: colors.$gray-600;
 		font-size: 0.84rem;
 		text-transform: uppercase;
 		letter-spacing: 0.4px;
@@ -388,19 +390,19 @@
 }
 
 .decision-approve {
-	background: linear-gradient(135deg, $green-500, #16a34a);
-	color: $white;
-	box-shadow: $shadow-sm;
+	background: linear-gradient(135deg, colors.$green-500, #16a34a);
+	color: colors.$white;
+	box-shadow: colors.$shadow-sm;
 }
 
 .decision-adjust {
-	background: linear-gradient(135deg, $orange-500, $orange-400);
-	color: $white;
-	box-shadow: $shadow-orange;
+	background: linear-gradient(135deg, colors.$orange-500, colors.$orange-400);
+	color: colors.$white;
+	box-shadow: colors.$shadow-orange;
 }
 
 .decision-reject {
-	background: $white;
+	background: colors.$white;
 	color: #ef4444;
 	border-color: rgba(239, 68, 68, 0.18);
 }
@@ -415,7 +417,7 @@
 	> div {
 		span {
 			display: block;
-			color: $gray-400;
+			color: colors.$gray-400;
 			font-size: 0.76rem;
             font-weight: 600;
 			letter-spacing: 0.4px;
@@ -424,12 +426,12 @@
 		}
 
 		strong {
-			color: $gray-800;
+			color: colors.$gray-800;
 			font-size: 0.96rem;
 		}
 
 		p {
-			color: $gray-600;
+			color: colors.$gray-600;
 			font-size: 0.92rem;
 			line-height: 1.65;
 		}
@@ -449,14 +451,14 @@
 .photo-card {
 	border-radius: 16px;
 	overflow: hidden;
-	border: 1px solid $gray-200;
-	background: $gray-50;
+	border: 1px solid colors.$gray-200;
+	background: colors.$gray-50;
 
 	span {
 		display: block;
 		padding: 10px 12px;
-		background: $gray-400;
-		color: $white;
+		background: colors.$gray-400;
+		color: colors.$white;
 		font-size: 0.78rem;
 		font-weight: 700;
 		text-align: center;

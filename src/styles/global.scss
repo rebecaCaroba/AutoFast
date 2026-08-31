@@ -1,4 +1,6 @@
-@import './config/variables';
+@use 'config/variables';
+@use "config/colors";
+
 
 * {
     box-sizing: border-box;
@@ -12,8 +14,8 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: $white;
-    color: $gray-800;
+    background: colors.$white;
+    color: colors.$gray-800;
     line-height: 1.6;
 
 
@@ -23,12 +25,12 @@ body {
     }
 
     &::-webkit-scrollbar-thumb {
-        background: $gray-300;
+        background: colors.$gray-300;
         border-radius: 8px;
     }
 
     &::-webkit-scrollbar-track {
-        background: $gray-100;
+        background: colors.$gray-100;
         border-radius: 8px;
     }
 

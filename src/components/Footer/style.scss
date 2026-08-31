@@ -1,7 +1,9 @@
-@import '../../styles/config/variables';
+@use '../../styles/config/variables';
+@use "../../styles/config/colors";
+
 
 footer {
-  background: $gray-900;
+  background: colors.$gray-900;
   padding: 72px 5% 40px;
 }
 
@@ -31,7 +33,7 @@ footer {
 .footer-logo-icon {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, $blue-500, $blue-400);
+  background: linear-gradient(135deg, colors.$blue-500, colors.$blue-400);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -42,11 +44,11 @@ footer {
 .footer-logo-text {
   font-size: 1.3rem;
   font-weight: 800;
-  color: $white;
+  color: colors.$white;
   letter-spacing: -0.5px;
 }
 
-.footer-logo-text span { color: $orange-400; }
+.footer-logo-text span { color: colors.$orange-400; }
 
 .footer-tagline {
   font-size: 0.875rem;
@@ -78,13 +80,13 @@ footer {
 
 .social-btn:hover {
   background: rgba(255,255,255,0.1);
-  color: $white;
+  color: colors.$white;
 }
 
 .footer-col-title {
   font-size: 0.8rem;
   font-weight: 700;
-  color: $white;
+  color: colors.$white;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 20px;

@@ -1,4 +1,6 @@
-@import '../../styles/config/variables';
+@use '../../styles/config/variables';
+@use "../../styles/config/colors";
+
 
 
 .page-bg {
@@ -56,7 +58,7 @@
 .brand-panel {
 	background: linear-gradient(160deg, rgba(10, 22, 40, 0.9), rgba(13, 31, 60, 0.88));
 	padding: 40px;
-	box-shadow: $shadow-lg;
+	box-shadow: colors.$shadow-lg;
 	display: flex;
 	flex-direction: column;
 }
@@ -75,23 +77,23 @@
 	border-radius: 10px;
 	display: grid;
 	place-items: center;
-	background: linear-gradient(135deg, $blue-500, $blue-400);
-	box-shadow: $shadow-blue;
+	background: linear-gradient(135deg, colors.$blue-500, colors.$blue-400);
+	box-shadow: colors.$shadow-blue;
 }
 
 .brand-logo-text {
 	font-size: 1.45rem;
 	font-weight: 800;
-	color: $white;
+	color: colors.$white;
 	letter-spacing: -0.4px;
 }
 
 .brand-logo-text span {
-	color: $orange-400;
+	color: colors.$orange-400;
 }
 
 .panel-eyebrow {
-	color: $orange-400;
+	color: colors.$orange-400;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 0.78rem;
@@ -138,14 +140,14 @@
 	width: 100%;
 	background: rgba(255, 255, 255, 0.96);
 	padding: 34px 32px;
-	color: $gray-900;
+	color: colors.$gray-900;
 	box-shadow: 0 20px 54px rgba(2, 6, 23, 0.33);
 }
 
 .badge {
 	display: inline-block;
 	background: rgba(249, 115, 22, 0.12);
-	color: $orange-500;
+	color: colors.$orange-500;
 	border: 1px solid rgba(249, 115, 22, 0.24);
 	border-radius: 999px;
 	font-size: 0.78rem;
@@ -163,7 +165,7 @@
 }
 
 .form-header p {
-	color: $gray-500;
+	color: colors.$gray-500;
 	margin-bottom: 24px;
 }
 
@@ -175,12 +177,12 @@
 .auth-form label {
 	font-size: 0.84rem;
 	font-weight: 700;
-	color: $gray-700;
+	color: colors.$gray-700;
 }
 
 .auth-form input {
 	width: 100%;
-	border: 1px solid $gray-200;
+	border: 1px solid colors.$gray-200;
 	border-radius: 12px;
 	padding: 13px 14px;
 	font-size: 0.95rem;
@@ -189,7 +191,7 @@
 }
 
 .auth-form input:focus {
-	border-color: $blue-400;
+	border-color: colors.$blue-400;
 	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
 }
 
@@ -204,7 +206,7 @@
 .aux-link {
 	text-decoration: none;
 	font-size: 0.8rem;
-	color: $blue-500;
+	color: colors.$blue-500;
 	font-weight: 600;
 }
 
@@ -219,9 +221,9 @@
 	padding: 14px;
 	font-size: 0.98rem;
 	font-weight: 700;
-	color: $white;
-	background: linear-gradient(135deg, $orange-500, $orange-400);
-	box-shadow: $shadow-orange;
+	color: colors.$white;
+	background: linear-gradient(135deg, colors.$orange-500, colors.$orange-400);
+	box-shadow: colors.$shadow-orange;
 	cursor: pointer;
 	transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -234,11 +236,11 @@
 .switch-auth {
 	margin-top: 20px;
 	font-size: 0.88rem;
-	color: $gray-500;
+	color: colors.$gray-500;
 }
 
 .switch-auth a {
-	color: $blue-500;
+	color: colors.$blue-500;
 	font-weight: 700;
 	text-decoration: none;
 }
