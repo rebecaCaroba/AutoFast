@@ -4,11 +4,7 @@ import Register from "./pages/Cadastro";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { DefaultLayout } from "./DefaultLayout";
-import CreateBudget from "./pages/CriarOrcamento";
-import Budget from "./pages/Orcamento";
 import Chat from "./pages/Chat";
-import AcompanharOrcamento from "./pages/AcompanharOrcamento";
-import RequestBudget from "./pages/SolicitarOrcamento";
 
 export function Router() {
 
@@ -22,11 +18,7 @@ export function Router() {
             <Route path="/login" element={<Login />} />
             <Route element={<DefaultLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/criar-orcamento" element={<CreateBudget />} />
-              <Route path="/orcamento/:id" element={<Budget />} />
               <Route path="/chat" element={<Chat />} />
-              <Route path="/acompanhar-orcamento" element={<AcompanharOrcamento />} />
-              <Route path="solicitar-orcamento" element={<RequestBudget />} />
             </Route>
           </Route>
         </Routes>
