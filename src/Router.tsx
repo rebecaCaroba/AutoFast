@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { DefaultLayout } from "./DefaultLayout";
 import Chat from "./pages/Chat";
+import Profile from "./pages/Perfil";
 
 export function Router() {
 
@@ -19,6 +20,7 @@ export function Router() {
             <Route element={<DefaultLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/chat" element={<Chat />} />
+              <Route path="/perfil" element={<Profile />} />
             </Route>
           </Route>
         </Routes>
