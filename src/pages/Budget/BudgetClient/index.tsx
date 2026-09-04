@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { IoAddSharp } from 'react-icons/io5';
 import { FaSortAmountDown } from 'react-icons/fa';
 import { CiFilter } from 'react-icons/ci';
+import { ModalCreateBudget } from '../../../components/ModalCreateBudget';
+import { ModalBudget } from '../../../components/ModalBudget';
 
 interface Orcamento {
     id: number;
@@ -22,14 +24,17 @@ const dados: Orcamento[] = [
 ];
 
 export function BudgetClient() {
-    const [filtro, setFiltro] = useState('');
     const navigate = useNavigate();
+    const [isModalOpenCreateBudget, setIsOpenCreateBudget] = useState<boolean>(false)
+    const [isModalBudgetOpen, setIsModalBudgetOpen] = useState<boolean>(false)
 
-    const orcamentosFiltrados = dados.filter(orcamento =>
-        orcamento.cliente.toLowerCase().includes(filtro.toLowerCase()) ||
-        orcamento.orc.toLowerCase().includes(filtro.toLowerCase()) ||
-        orcamento.veiculo.toLowerCase().includes(filtro.toLowerCase())
-    );
+    function toggleModalBudget() {
+        setIsModalBudgetOpen((state) => !state)
+    }
+
+    function toggleModalCreateBudget() {
+        setIsOpenCreateBudget((state) => !state)
+    }
 
     const getStatusColor = (status: string) => {
         switch (status) {
@@ -66,7 +71,7 @@ export function BudgetClient() {
             <div className="dashboard-header">
                 <div>
                     <h1>Todos os orçamentos</h1>
-                    <p className="total-orcamentos">{orcamentosFiltrados.length} orçamentos no total</p>
+                    <p className="total-orcamentos">3 orçamentos no total</p>
                 </div>
                 <div className="dashboard-mechanic-actions">
                     <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--ghost">
@@ -77,7 +82,7 @@ export function BudgetClient() {
                         <FaSortAmountDown size={16} />
                         Ordenar
                     </button>
-                    <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
+                    <button type="button" onClick={toggleModalCreateBudget} className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
                         < IoAddSharp />
                         Novo orçamento
                     </button>
@@ -98,8 +103,8 @@ export function BudgetClient() {
                             </tr>
                         </thead>
                         <tbody>
-                            {orcamentosFiltrados.map((orcamento) => (
-                                <tr key={orcamento.id} onClick={() => navigate(`/orcamento/${orcamento.status}`)} className="table-row">
+                            {dados.map((orcamento) => (
+                                <tr key={orcamento.id} onClick={toggleModalBudget} className="table-row">
                                     <td>{orcamento.orc}</td>
                                     <td>{orcamento.veiculo}</td>
                                     <td>{orcamento.data}</td>
@@ -127,6 +132,16 @@ export function BudgetClient() {
                     </table>
                 </div>
             </div>
+
+
+            {isModalOpenCreateBudget && (
+                <ModalCreateBudget toggleModal={toggleModalCreateBudget} />
+            )}
+
+            {isModalBudgetOpen && (
+                <ModalBudget toggleModalBudget={toggleModalBudget} />
+            )}
+
         </div>
     );
 }
