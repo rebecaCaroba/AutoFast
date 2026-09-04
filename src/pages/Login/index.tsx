@@ -33,7 +33,7 @@ export default function Login() {
 					</div>
 					<input id="senha" name="senha" type="password" placeholder="Digite sua senha" required />
 
-					<button type="submit" className="btn-submit" onClick={() => navigate('/dashboard/')}>Entrar agora</button>
+					<button type="submit" className="btn-submit" onClick={() => navigate('/orcamentos')}>Entrar agora</button>
 				</form>
 
 				<p className="switch-auth">

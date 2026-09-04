@@ -70,7 +70,7 @@ export default function Register() {
 						<span>Aceito os termos de uso e a politica de privacidade.</span>
 					</label>
 
-					<button type="submit" className="btn-submit" onClick={() => navigate('/dashboard/')}>Criar minha conta</button>
+					<button type="submit" className="btn-submit">Criar minha conta</button>
 				</form>
 
 				<p className="switch-auth">

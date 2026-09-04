@@ -20,9 +20,9 @@ export function Header() {
                     </div>
                     <div className="header-badge-online"></div>
                 </div>
-                <Link to="/orcamento"
-                    className={`nav-item ${activeLink === '/orcamento' ? 'active' : ''}`}
-                    onClick={() => handleLinkClick('/orcamento')}
+                <Link to="/orcamentos"
+                    className={`nav-item ${activeLink === '/orcamentos' ? 'active' : ''}`}
+                    onClick={() => handleLinkClick('/orcamentos')}
                 >
                     Orçamentos
                 </Link>

@@ -18,7 +18,7 @@ export function Router() {
             <Route path="/cadastrar" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route element={<DefaultLayout />}>
-              <Route path="/orcamento" element={<Budget />} />
+              <Route path="/orcamentos" element={<Budget />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/perfil" element={<Profile />} />
             </Route>
