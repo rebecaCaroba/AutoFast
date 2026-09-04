@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Cadastro";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Budget from "./pages/Budget";
 import { DefaultLayout } from "./DefaultLayout";
 import Chat from "./pages/Chat";
 import Profile from "./pages/Perfil";
@@ -18,7 +18,7 @@ export function Router() {
             <Route path="/cadastrar" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route element={<DefaultLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/orcamento" element={<Budget />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/perfil" element={<Profile />} />
             </Route>

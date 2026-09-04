@@ -269,7 +269,7 @@ const columns: BoardColumn[] = [
     },
 ]
 
-export function DashboardMechanic() {
+export function BudgetMechanic() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [isModalBudgetOpen, setIsModalBudgetOpen] = useState<boolean>(false)
 

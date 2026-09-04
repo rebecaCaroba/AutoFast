@@ -20,18 +20,18 @@ export function Header() {
                     </div>
                     <div className="header-badge-online"></div>
                 </div>
-                <Link to="/dashboard"
-                    className={`nav-item ${activeLink === '/dashboard' ? 'active' : ''}`}
-                    onClick={() => handleLinkClick('/dashboard')}
+                <Link to="/orcamento"
+                    className={`nav-item ${activeLink === '/orcamento' ? 'active' : ''}`}
+                    onClick={() => handleLinkClick('/orcamento')}
                 >
-                    Dashboard
+                    Orçamentos
                 </Link>
 
                 <Link to="/dashboard"
                     className={`nav-item ${activeLink === '/dashboard' ? 'active' : ''}`}
                     onClick={() => handleLinkClick('/dashboard')}
                 >
-                    Gráficos
+                    Painel
                 </Link>
 
             </div>

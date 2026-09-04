@@ -18,7 +18,7 @@ const dados: Orcamento[] = [
     { id: 4, cliente: 'Fernanda Ramos', orc: 'Compressor de A/C - Recondicionado', veiculo: 'Jeep Compass 2020', data: 'Ontem, 11:45', valor: 1200.00, status: 'Em análise' },
 ];
 
-export function DashboardClient() {
+export function BudgetClient() {
     const [filtro, setFiltro] = useState('');
     const navigate = useNavigate();
 
