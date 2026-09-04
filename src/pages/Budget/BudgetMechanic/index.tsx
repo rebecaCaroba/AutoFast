@@ -37,7 +37,7 @@ const columns: BoardColumn[] = [
                 title: 'Alternador recond. - Gol G5',
                 client: 'Matheus Cano',
                 description: 'Padrão',
-                value: 'R$ 380,00',
+                value: 'A definir',
                 time: '2h',
                 initials: 'MV',
                 tone: 'blue',

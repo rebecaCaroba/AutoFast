@@ -3,7 +3,7 @@ import { BudgetMechanic } from "./BudgetMechanic"
 
 
 export default function Budget() {
-    const user: string = 'od'
+    const user: string = 'mecanico'
 
     return (
         <>
