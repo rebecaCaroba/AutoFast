@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './style.scss';
 import { useState } from 'react';
+import { IoAddSharp } from 'react-icons/io5';
+import { FaSortAmountDown } from 'react-icons/fa';
+import { CiFilter } from 'react-icons/ci';
 
 interface Orcamento {
     id: number;
@@ -65,68 +68,64 @@ export function BudgetClient() {
                     <h1>Todos os orçamentos</h1>
                     <p className="total-orcamentos">{orcamentosFiltrados.length} orçamentos no total</p>
                 </div>
-                <Link to={'/criar-orcamento'} className="btn-criar-orcamento">+ Criar orçamento</Link>
+                <div className="dashboard-mechanic-actions">
+                    <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--ghost">
+                        < CiFilter size={24} />
+                        Filtrar
+                    </button>
+                    <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--ghost">
+                        <FaSortAmountDown size={16} />
+                        Ordenar
+                    </button>
+                    <button type="button" className="dashboard-mechanic-action-button dashboard-mechanic-action-button--primary">
+                        < IoAddSharp />
+                        Novo orçamento
+                    </button>
+                </div>
             </div>
 
-            <div className="filtro-container">
-                <input
-                    type="text"
-                    placeholder="Pesquisar por cliente, serviço ou veículo..."
-                    value={filtro}
-                    onChange={(e) => setFiltro(e.target.value)}
-                    className="filtro-input"
-                />
-            </div>
+            <div className="dashboard-container">
 
-            <div className="table-container">
-                <table className="orcamentos-table">
-                    <thead>
-                        <tr>
-                            <th>CLIENTE</th>
-                            <th>PEÇA / SERVIÇO</th>
-                            <th>VEÍCULO</th>
-                            <th>DATA</th>
-                            <th>VALOR</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {orcamentosFiltrados.map((orcamento) => (
-                            <tr key={orcamento.id} onClick={() => navigate(`/orcamento/${orcamento.status}`)} className="table-row">
-                                <td>
-                                    <div className="cliente-info">
-                                        <div className="cliente-avatar">{orcamento.cliente.charAt(0)}</div>
-                                        <div>
-                                            <div className="cliente-nome">{orcamento.cliente}</div>
-                                            <div className="cliente-id">#{String(orcamento.id).padStart(4, '0')}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{orcamento.orc}</td>
-                                <td>{orcamento.veiculo}</td>
-                                <td>{orcamento.data}</td>
-                                <td>
-                                    {orcamento.valor > 0 ? (
-                                        <div className="valor">R$ {orcamento.valor.toFixed(2)}</div>
-                                    ) : (
-                                        <span>—</span>
-                                    )}
-                                </td>
-                                <td>
-                                    <span
-                                        className="status-badge"
-                                        style={{
-                                            backgroundColor: getStatusColor(orcamento.status),
-                                            color: getStatusTextColor(orcamento.status),
-                                        }}
-                                    >
-                                        {orcamento.status}
-                                    </span>
-                                </td>
+                <div className="table-container">
+                    <table className="orcamentos-table">
+                        <thead>
+                            <tr>
+                                <th>PEÇA / SERVIÇO</th>
+                                <th>VEÍCULO</th>
+                                <th>DATA</th>
+                                <th>VALOR</th>
+                                <th>STATUS</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {orcamentosFiltrados.map((orcamento) => (
+                                <tr key={orcamento.id} onClick={() => navigate(`/orcamento/${orcamento.status}`)} className="table-row">
+                                    <td>{orcamento.orc}</td>
+                                    <td>{orcamento.veiculo}</td>
+                                    <td>{orcamento.data}</td>
+                                    <td>
+                                        {orcamento.valor > 0 ? (
+                                            <div className="valor">R$ {orcamento.valor.toFixed(2)}</div>
+                                        ) : (
+                                            <span>—</span>
+                                        )}
+                                    </td>
+                                    <td>
+                                        <span
+                                            className="status-badge"
+                                            style={{
+                                                backgroundColor: getStatusColor(orcamento.status),
+                                                color: getStatusTextColor(orcamento.status),
+                                            }}
+                                        >
+                                            {orcamento.status}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

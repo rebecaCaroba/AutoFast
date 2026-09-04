@@ -1,10 +1,9 @@
 @use '../../../styles/config/variables';
+@use "../../../styles/config/colors";
 
 .dashboard {
-    padding: 2rem;
-    background-color: #fff;
+    padding: 1rem;
     border-radius: 8px;
-    margin-bottom: 2rem;
 
 
     .dashboard-header {
@@ -16,18 +15,52 @@
         h1 {
             font-size: 24px;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
+            color: colors.$gray-800;
+        }
+
+        .dashboard-mechanic-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .dashboard-mechanic-action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: 34px;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid colors.$gray-200;
+            background: colors.$white;
+            color: colors.$gray-700;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .dashboard-mechanic-action-button--ghost {
+            background: rgba(colors.$white, 0.96);
+        }
+
+        .dashboard-mechanic-action-button--primary {
+            border-color: colors.$orange-500;
+            background: linear-gradient(180deg, colors.$orange-400 0%, colors.$orange-500 100%);
+            color: colors.$white;
+            box-shadow: colors.$shadow-orange;
         }
 
         .total-orcamentos {
-            color: #999;
+            color: colors.$gray-600;
             font-size: 14px;
         }
 
         .btn-criar-orcamento {
             padding: 0.75rem 1.5rem;
-            background-color: #007bff;
+            background-color: colors.$orange-500;
             color: white;
             border: none;
             border-radius: 6px;
@@ -39,60 +72,37 @@
             text-decoration: none;
 
             &:hover {
-                background-color: #0056b3;
+                background-color: colors.$orange-500;
             }
 
-            &:active {
-                background-color: #003d82;
-            }
         }
     }
 
-    .filtro-container {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        align-items: center;
-
-        .filtro-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-
-            &:focus {
-                border-color: #007bff;
-                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
-            }
-
-            &::placeholder {
-                color: #999;
-            }
-        }
-
-        
+    .dashboard-container {
+        background: colors.$gray-50;
+        border: 1px solid colors.$gray-200;
+        border-radius: 16px;
+        padding: 2rem;
     }
 
     .table-container {
         overflow-x: auto;
         border-radius: 8px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid colors.$gray-300;
+        background-color: colors.$white;
 
         .orcamentos-table {
             width: 100%;
             border-collapse: collapse;
 
             thead {
-                background-color: #f8f9fa;
+                background-color: colors.$gray-100;
 
                 th {
                     padding: 1rem;
                     text-align: left;
                     font-weight: 600;
-                    color: #999;
+                    color: colors.$gray-700;
                     font-size: 12px;
                     border-bottom: 1px solid #e0e0e0;
                     text-transform: uppercase;
@@ -103,11 +113,11 @@
             tbody {
                 tr {
                     cursor: pointer;
-                    border-bottom: 1px solid #e0e0e0;
+                    border-bottom: 1px solid colors.$gray-200;
                     transition: background-color 0.2s ease;
 
                     &:hover {
-                        background-color: #fafafa;
+                        background-color: colors.$gray-50;
                     }
 
                     &:last-child {
@@ -117,40 +127,11 @@
                     td {
                         padding: 1rem;
                         font-size: 14px;
-                        color: #333;
-
-                        .cliente-info {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.75rem;
-
-                            .cliente-avatar {
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 50%;
-                                background-color: #007bff;
-                                color: white;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-weight: 600;
-                                font-size: 16px;
-                            }
-
-                            .cliente-nome {
-                                font-weight: 500;
-                                color: #333;
-                            }
-
-                            .cliente-id {
-                                font-size: 12px;
-                                color: #999;
-                            }
-                        }
+                        color: colors.$gray-700;
 
                         .valor {
                             font-weight: 600;
-                            color: #333;
+                            color: colors.$gray-800;
                         }
 
                         .status-badge {
